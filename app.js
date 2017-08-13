@@ -24,7 +24,7 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
-
+console.log('断电')
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()
@@ -32,9 +32,11 @@ app.use(async (ctx, next) => {
   try{
       await next()
       ms = new Date() - start
+      console.log(ms)
       logUtil.logResponse(ctx,ms)
   } catch(error){
       ms = new Date()-start
+      console.log(error)
       logUtil.logError(ctx,error,ms)
   }
 })
