@@ -14,3 +14,11 @@ CREATE TABLE `threads` (
 `parent` VARCHAR(20) NOT NULL,
 `updateAt` VARCHAR(20) NOT NULL
 ) default charset=utf8;
+
+
+create table forum (
+name varchar(20) NOT NULL,
+header varchar(20),
+cooldown varchar(20),
+lock boolean;
+) default charset=utf8;
