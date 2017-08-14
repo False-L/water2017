@@ -8,3 +8,22 @@ exports.index= async function (ctx,next) {
         }
     })
 }
+exports.signin=async function (ctx,next) {
+    if(ctx.req.method !='POST'){
+        await ctx.render('homepage/signin',{
+                page: {
+                    name: '登陆',
+                    desc: '权限者认证'
+                }
+        })
+    }
+    var body=ctx.req.body
+    
+}
+
+/** 
+ * 登出
+ */ 
+exports.signout=async function (ctx,next) {
+    console.log('signout')
+}
