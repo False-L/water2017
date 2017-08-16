@@ -2,7 +2,7 @@ extends ../../layout/index
 block body
     +row
         +col('md',3)
-            +message
+            //- +message
             +well
                 +button('primary','sm','创建新的版块','/content/forum/create').btn-block
                 hr
@@ -37,10 +37,10 @@ block body
                                 td
                                     = item.cooldown
                                 td
-                                    +time(item.createdAt)
+                                    //- +time(item.createdAt)
                                     br
                                     font(color="#999999")
-                                        +time(item.createdAt)
+                                        //- +time(item.createdAt)
                                 td
                                     a(href='/system/cache/flush?key=forum:'+item.id+':*') 清除该版块缓存
                                     | &nbsp;

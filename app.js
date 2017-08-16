@@ -9,7 +9,7 @@ const logUtil = require('./utils/log_util.js')
 
 const index = require('./api/routes/index')
 const users = require('./api/routes/users')
-
+const content =  require('./api/routes/content')
 // error handler
 onerror(app)
 
@@ -44,5 +44,6 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(content.routes(), content.allowedMethods())
 
 module.exports = app

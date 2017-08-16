@@ -1,5 +1,6 @@
-const dabUtil=require('../../utils/db.js')
 
+
+const dbUtil = require('../../utils/db.js')
 
 const User={
   /**

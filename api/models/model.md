@@ -17,8 +17,12 @@ CREATE TABLE `threads` (
 
 
 create table forum (
+id INT(5) UNSIGNED NOT NULL AUTO_INCREMENT primary key,
 name varchar(20) NOT NULL,
 header varchar(20),
 cooldown varchar(20),
-lock boolean;
+createdAttimestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
+`lock` boolean
 ) default charset=utf8;
+
+insert into forum value (null,'dnf','haowan',20,null,1)

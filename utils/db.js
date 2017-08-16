@@ -1,5 +1,9 @@
-const mysql=require('mysql')
-const development=require('../config/env/development.js')
+const mysql= require('mysql')
+var Promise = require('bluebird')
+Promise.promisifyAll(require('mysql/lib/Connection').prototype)
+Promise.promisifyAll(require('mysql/lib/Pool').prototype)
+
+const development = require('../config/env/development.js')
 
 const pool=mysql.createPool({
     host:development.mysqlServer.host,
@@ -37,6 +41,10 @@ let query = function( sql, values ) {
   let findDataByPage=function(table,keys,start,end){
       let _sql="SELECT ?? FROM ?? LIMUT ?,?"
       return query(_sql,[keys,table,start,end])
+  }
+  let insertData = function( table, values ) {
+    let _sql = "INSERT INTO ?? SET ?"
+    return query( _sql, [ table, values ] )
   }
   let updateData = function( table, values, id ) {
     let _sql = "UPDATE ?? SET ? WHERE id = ?"
