@@ -2,12 +2,12 @@ extends ../../layout/index
 block body
     +row
         +col('md',3)
-            +message
+            //- +message
             +well
                 +button('primary','sm','提交','javascript:document.forms[0].submit()').btn-block
                 +button('default','sm','重置页面','javascript:location.reload()').btn-block
         +col('md',9)
-            +form('post',req.url)
+            +form('post','/content/forum/create')
                 +input('text','name','版块名',data.name)
                 +ckeditor('header','简介',data.header,'支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。')
                 hr

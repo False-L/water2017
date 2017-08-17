@@ -24,7 +24,6 @@ const ForumModel = require('../models/Forum.js')
     }
     let results= await ForumModel.findAll()
     results=JSON.stringify(results); 
-    console.log(results)
     if(results&&results.length>0){
         ctx.body={
             data:results
@@ -45,7 +44,8 @@ const ForumModel = require('../models/Forum.js')
  }
 
  exports.create=async function (ctx,next) {
-     var data=ctx.req.body ||{}
+     var data=ctx.request ||{}
+     console.log(ctx)
      if(ctx.method !='POST'){
          await ctx.render('content/forum/edit',{
             page: {
@@ -55,7 +55,12 @@ const ForumModel = require('../models/Forum.js')
             data: data
          })
      }
-     ctx.body={
-         data:'create'
-     }
+     console.log(ctx.request.body);
+    //  let results= await ForumModel.create({
+    //     name:data.name,
+    //     header:data.header,
+    //     cooldown:data.cooldown,
+    //     lock:data.lock
+    //  })
+    //  console.log(result)
  }
