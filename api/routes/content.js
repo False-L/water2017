@@ -1,5 +1,5 @@
 const router = require('koa-router')()
-const koaBody = require('koa-body')()
+const koaBody = require('koa-body')({multipart: true})
 
 
 router.prefix('/content')

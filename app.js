@@ -15,12 +15,17 @@ const content =  require('./api/routes/content')
 // error handler
 onerror(app)
 
+
+
 // middlewares
+
+app.use(koaBody(),{multipart:true})
+
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
 
-app.use(koaBody(),{multipart:true})
+
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))

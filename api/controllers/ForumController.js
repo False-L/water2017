@@ -44,8 +44,8 @@ const ForumModel = require('../models/Forum.js')
  }
 
  exports.create=async function (ctx,next) {
-     var data=ctx.request ||{}
-     console.log(ctx)
+     var data=ctx.request.body ||{}
+     //console.log(ctx)
      if(ctx.method !='POST'){
          await ctx.render('content/forum/edit',{
             page: {
@@ -55,12 +55,35 @@ const ForumModel = require('../models/Forum.js')
             data: data
          })
      }
-     console.log(ctx.request.body);
-    //  let results= await ForumModel.create({
-    //     name:data.name,
-    //     header:data.header,
-    //     cooldown:data.cooldown,
-    //     lock:data.lock
-    //  })
-    //  console.log(result)
+    data=JSON.stringify(data)
+    result=JSON.parse(data)
+    let res=await ForumModel.create({
+        name:result.fields.name,
+        header:result.fields.header,
+        cooldown:result.fields.cooldown,
+        lock:result.fields.lock
+    }).then(function(result){
+            return true
+         }).catch(function(err){
+            return false
+        });
+        if(res){
+            return ctx.response.redirect('/content/forum');
+        }else{
+            return ctx.response.redirect('back');
+        }
+ }
+ exports.update=async function (ctx,next) {
+    ForumModel.forum.findOneById(ctx.req.params.id)
+    .then(function(forum){
+        if(!forum){
+            
+        }
+    })
+
+    ForumModel.update({
+
+    },{
+
+    })
  }
