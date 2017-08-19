@@ -5,7 +5,7 @@
  */
 const ForumModel = require('../models/Forum.js')
 
- exports.index=async function (ctx,next) {
+exports.index=async function (ctx,next) {
     var map = {};
     var sort = {};
     if(ctx.query.rule){
@@ -41,9 +41,9 @@ const ForumModel = require('../models/Forum.js')
         }
     }
     
- }
+}
 
- exports.create=async function (ctx,next) {
+exports.create = async function (ctx,next) {
      var data=ctx.request.body ||{}
      //console.log(ctx)
      if(ctx.method !='POST'){
@@ -67,23 +67,93 @@ const ForumModel = require('../models/Forum.js')
          }).catch(function(err){
             return false
         });
-        if(res){
-            return ctx.response.redirect('/content/forum');
-        }else{
-            return ctx.response.redirect('back');
-        }
- }
- exports.update=async function (ctx,next) {
-    ForumModel.forum.findOneById(ctx.req.params.id)
-    .then(function(forum){
-        if(!forum){
-            
-        }
-    })
-
-    ForumModel.update({
-
+    if(res){
+        return ctx.response.redirect('/content/forum');
+    }else{
+        return ctx.response.redirect('back');
+    }
+}
+exports.update = async function (ctx,next) {
+    var forum = await ForumModel.findById(ctx.params.id)
+    forum = JSON.stringify(forum)
+    forum = JSON.parse(forum)
+    // console.log('forum',forum)
+    if(!forum) return 
+    var reqBody=ctx.request.body||{}
+    reqBody=JSON.stringify(reqBody)
+    req=JSON.parse(reqBody)
+    // console.log(req)
+    var data = {}
+    if(req.fields){
+        data=req.fields  ||{}
+    }else{
+        data=forum
+    }
+    data=req.fields || forum || {}
+    // console.log('data',data)
+    if(ctx.method != 'POST'){
+        return ctx.render('content/forum/edit', {
+                page: {
+                    name: '编辑版块',
+                    desc: '编辑版块的版头和冷却时间'
+                },
+                data: data,
+                url:ctx.url
+            });
+    }
+    //console.log('data',data)
+    let result=await ForumModel.update({
+        name:data.name,
+        header:data.header,
+        cooldown:data.cooldown,
+        lock:data.lock
     },{
-
+        where:{
+            id:forum.id
+        }
     })
+    //console.log('result',result)
+    if(result.length>0&&result[0]===1){
+        return ctx.response.redirect('/content/forum');
+    }else{
+        return ctx.response.redirect('back');
+    } 
  }
+exports.remove = async function (ctx,next) {
+    var map = {}
+    if(ctx.params.id){
+        console.log('params',ctx.params.id)
+        map['id'] = ctx.params.id
+    }else if(ctx.query.ids){
+        console.log('query',ctx.query.ids)
+        map['id'] = ctx.query.ids;
+    }else {
+        return ;
+    }
+   let result = await ForumModel.destroy({
+        where:{
+            id:map.id
+        }
+    })
+    console.log('result',result)
+    if(result){
+        return ctx.response.redirect('/content/forum');
+    }else{
+        return ctx.response.redirect('back');
+    }
+}
+// 配置 解锁&锁定
+exports.set = async function (ctx,next) {
+    var map = {}
+    map[ctx.query.key] = ctx.query.value
+   let result = await ForumModel.update(map,{
+        where:{
+            id:ctx.params.id
+        }
+    })
+    if(result){
+        return ctx.response.redirect('/content/forum');
+    }else{
+        return ctx.response.redirect('back');
+    }
+}
