@@ -12,8 +12,9 @@ CREATE TABLE `threads` (
 `ip` VARCHAR(20) NOT NULL,
 `forum` VARCHAR(20) NOT NULL,
 `parent` VARCHAR(20) NOT NULL,
-`updateAt` VARCHAR(20) NOT NULL
-) default charset=utf8;
+`createdAt` VARCHAR(20) NOT NULL,
+`updatedAt` VARCHAR(20) NOT NULL
+) ENGINE = MYISAM;
 
 
 create table forum (

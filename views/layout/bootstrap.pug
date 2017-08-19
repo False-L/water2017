@@ -166,7 +166,7 @@ mixin checkbox(name,title,data,value,help)
         label.col-sm-2.control-label(for=inputId)=title
         div.col-sm-10
             each item in data
-                if _.isArray(value)
+                if Array.isArray(value)
                     - var ischecked =  ((value && value.indexOf(item.value)) || item.value == value) ? true : false
                 else if value && item.value
                     - var ischecked =  (item.value.toString() == value.toString())

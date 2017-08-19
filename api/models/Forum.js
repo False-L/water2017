@@ -17,6 +17,6 @@ sequelize.define('forum',{
   tableName: 'forum',       
   timestamps: false     
 })
-var ForumModel=sequelize.models.forum
+var ForumModel = sequelize.models.forum
 
-module.exports=ForumModel
+module.exports = ForumModel

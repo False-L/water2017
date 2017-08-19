@@ -2,7 +2,7 @@ extends ../../layout/index
 block body
     +row
         +col('md',3)
-            +message
+            //- +message
             +well
                 +button('primary','sm','创建新的帖子','/content/threads/create').btn-block
                 hr
@@ -16,7 +16,7 @@ block body
                         +button('default','sm','封禁这个IP？','/system/filter?type=ip&rule='+req.query.ip).btn-block
                     if req.query.parent
                         +input('number','parent','父串',req.query.parent)
-                    +select('forum','版块',sails.models.forum.selectList,req.query.forum)
+                    +select('forum','版块',selectList,req.query.forum)
                     +checkbox('lock','锁定','[{"key":"已锁定","value":"true"}]',req.query.lock)
                     +checkbox('sage','SAGE','[{"key":"已SAGE","value":"true"}]',req.query.sage)
                     +input('number','pagesize','页容量', pagesize)
@@ -61,11 +61,11 @@ block body
                                 td
                                     p
                                         font(color="#999")
-                                            - item.forumAttr = sails.models.forum.findForumById(item.forum)
-                                            if item.forumAttr
-                                                = '('+item.forumAttr.id+' : '+ item.forumAttr.name +'） '
-                                            else
-                                                = '('+item.forum+':UNKNOW） '
+                                            //- - item.forumAttr = sails.models.forum.findForumById(item.forum)
+                                            //- if item.forumAttr
+                                            //-     = '('+item.forumAttr.id+' : '+ item.forumAttr.name +'） '
+                                            //- else
+                                            //-     = '('+item.forum+':UNKNOW） '
                                         font(color="#cc1105")
                                             if item.email
                                                 a(href='mailto:'+item.email)= item.name || '无名氏'
@@ -81,7 +81,7 @@ block body
                                             | &nbsp;
                                             span.label.label-danger 已锁定
                                     if item.thumb
-                                        a(href=H.settings.siteCdnPath+item.image,target='_blank')
+                                        //- a(href=H.settings.siteCdnPath+item.image,target='_blank')
                                             img(src=H.settings.siteCdnPath+item.thumb,style="float:left;max-width: 150px;margin-right: 10px;")
                                     pre(style="white-space: pre-wrap;")!= item.content
                                 td
@@ -89,10 +89,10 @@ block body
                                     br
                                     a(href='/content/threads?ip='+item.ip)=item.ip
                                 td
-                                    +time(item.createdAt)
+                                    //- +time(item.createdAt)
                                     br
                                     font(color="#999999")
-                                        +time(item.createdAt)
+                                        //- +time(item.createdAt)
                                 td
                                     if item.sage
                                         a(href='/content/threads/'+item.id+'/set?key=sage&value=false') AGE

@@ -2,7 +2,7 @@ extends ../../layout/index
 block body
     +row
         +col('md',3)
-            +message
+            //- +message
             +well
                 +button('primary','sm','提交','javascript:document.forms[0].submit()').btn-block
                 +button('default','sm','重置页面','javascript:location.reload()').btn-block
@@ -10,14 +10,15 @@ block body
         +col('md',9)
             +form('post',req.url)
                 hr
-                - if(req.signedCookies.managerId){
-                -    var uid = '<font color="red">'+req.signedCookies.managerId+'</font>';
-                - } else {
-                -    var uid = req.signedCookies.userId;
-                - }
+                //- - if(req.signedCookies.managerId){
+                //- -    var uid = '<font color="red">'+req.signedCookies.managerId+'</font>';
+                //- - } else {
+                //- -    var uid = req.signedCookies.userId;
+                //- - }
                 - var uid = data.uid || uid || ''
                 +input('text','uid','ID',uid,'显示的ID，允许HTML。')
-                +select('forum','版块',sails.models.forum.selectList,data.forum)
+                +select('forum','版块',selectList,data.forum)
+                //- +select('forum','版块',sails.models.forum.selectList,data.forum)
                 hr
                 +input('text','parent','父贴',data.parent,'即回复对象，如果是发新帖则不填。不支持编辑修改，只会在创建贴子时生效。')
                 hr
