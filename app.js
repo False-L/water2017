@@ -8,10 +8,12 @@ const logger = require('koa-logger')
 const koaBody = require('koa-body')
 
 const logUtil = require('./utils/log_util.js')
+const bootstrap = require('./config/bootstrap.js')
 
 const index = require('./api/routes/index')
 const users = require('./api/routes/users')
-const content =  require('./api/routes/content')
+const content = require('./api/routes/content')
+const system = require('./api/routes/system')
 // error handler
 onerror(app)
 
@@ -34,6 +36,7 @@ app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 console.log('已经启动')
+
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()
@@ -41,18 +44,22 @@ app.use(async (ctx, next) => {
   try{
       await next()
       ms = new Date() - start
-      console.log(ms)
+      console.log(ms+'ms')
       logUtil.logResponse(ctx,ms)
   } catch(error){
       ms = new Date()-start
+      //await next()
       console.log(error)
       logUtil.logError(ctx,error,ms)
   }
 })
+app.use(bootstrap)
+// console.log('H')
 
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(content.routes(), content.allowedMethods())
+app.use(system.routes(), system.allowedMethods())
 
 module.exports = app

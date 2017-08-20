@@ -27,3 +27,10 @@ createdAttimestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
 ) default charset=utf8;
 
 insert into forum value (null,'dnf','haowan',20,null,1)
+
+create table user (
+access enum,
+name varchar(20),
+password varchar(20),
+salt varchar(20)
+) default charset=utf8;
