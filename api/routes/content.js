@@ -25,7 +25,11 @@ router.get('/forum/:id/set',ForumController.set)
 router.get('/threads',ThreadsController.index)
 router.get('/threads/create',ThreadsController.create)
 router.post('/threads/create',koaBody,ThreadsController.create)
-// router.get('/threads/:id/update',ThreadsController.update)
-// router.remove('/threads/remove',ThreadsController.remove)
+router.get('/threads/:id/update',ThreadsController.update)
+router.post('/threads/:id/update',koaBody,ThreadsController.update)
+router.get('/threads/remove',ThreadsController.remove)
+router.get('/threads/:id/remove',ThreadsController.remove)
+router.get('/threads/:id/removeImages',ThreadsController.removeImages)
+router.get('/threads/:id/set',ThreadsController.set)
 
 module.exports = router
