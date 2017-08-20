@@ -317,7 +317,7 @@ exports.remove = async function (ctx,next) {
         }
     })
     if(result){
-        return ctx.response.redirect('/content/forum');
+        return ctx.response.redirect('/content/threads');
     }else{
         return ctx.response.redirect('back');
     }
@@ -334,7 +334,7 @@ exports.set = async function (ctx,next) {
         }
     })
     if(result){
-        return ctx.response.redirect('back');
+        return ctx.response.redirect('/content/threads');
     }else{
         return ctx.response.redirect('back');
     }
@@ -350,7 +350,7 @@ exports.removeImages = async function (ctx,next) {
         }
     })
     if(result){
-        return ctx.response.redirect('back');
+        return ctx.response.redirect('/content/threads');
     }else{
         return ctx.response.redirect('back');
     }

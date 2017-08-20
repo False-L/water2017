@@ -33,7 +33,7 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
-console.log('断电')
+console.log('已经启动')
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()

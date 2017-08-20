@@ -1,35 +1,34 @@
+/**
+ * User.js
+ *
+ * @description ::用户
+ */
+const Sequelize = require('sequelize')
 
+const sequelize = require('../../utils/dbpool.js')
 
-const dbUtil = require('../../utils/db.js')
-
-const User={
-  /**
-   * 数据库创建用户
-   * @param  {object} model 用户数据模型
-   * @return {object}       mysql执行结果
-   */
-  async create ( model ) {
-    let result = await dbUtils.insertData( 'user_info', model )
-    return result
+sequelize.define('user',{
+  access:{
+    type:Sequelize.ENUM,
+    defaultValue:['manager']
   },
-  /**
-   * 查找一个存在用户的数据
-   * @param  {obejct} options 查找条件参数
-   * @return {object|null}        查找结果
-   */
-  async getExistOne(options ) {
-    let _sql = `
-    SELECT * from user_info
-      where email="${options.email}" or name="${options.name}"
-      limit 1`
-    let result = await dbUtils.query( _sql )
-    if ( Array.isArray(result) && result.length > 0 ) {
-      result = result[0]
-    } else {
-      result = null
-    }
-    return result
+  name:{
+    type:Sequelize.STRING,
+    allowNull:false
   },
-}
+  pasword:{
+    type:Sequelize.STRING,
+    allowNull:false
+  },
+  salt:{
+    type:Sequelize.STRING,
+    allowNull:false
+  },
+},{      
+  freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步      
+  tableName: 'user',       
+  timestamps: false     
+})
+var UserModel = sequelize.models.user
 
-module.exports=User
+module.exports = UserModel
