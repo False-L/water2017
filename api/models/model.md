@@ -34,3 +34,8 @@ name varchar(20),
 password varchar(20),
 salt varchar(20)
 ) default charset=utf8;
+
+create table setting (
+key varchar(255),
+value varchar(255)
+) default charset=utf8;

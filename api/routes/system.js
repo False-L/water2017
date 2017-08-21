@@ -9,7 +9,7 @@ var SettingController = require('../controllers/SettingController.js')
  * 系统配置
  */
 router.get('/setting',SettingController.index)
-// router.get('/setting/update',SettingController.update)
+router.post('/setting/update',koaBody,SettingController.update)
 /**
  * 过滤配置
  */
