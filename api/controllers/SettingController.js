@@ -24,10 +24,11 @@ exports.update = async function (ctx,next) {
     body = JSON.parse(body)
     let data = body.fields || {}
     var map = []
-    console.log('data',data)
+    //console.log('data',data)
+    console.log(H.settings)
     for(var key in data){
-        var value = ctx.request.body[key]
-        if(typeof H.settings[key] == undefined ){
+        var value = data[key]
+        if(typeof H.settings[key] == 'undefined' ){
             map.push({
                 action:'create',
                 key:key,
@@ -42,8 +43,26 @@ exports.update = async function (ctx,next) {
         }
     }
     
-    map.map(item=>{
-        console.log('item.item')
+    map.map(async item=>{
+       // console.log('item.item')
+        let result
+        if(item.action == 'create'){
+           result = await SettingModel.create({
+                key:item.key,
+                value:item.value
+            })
+        }else if(item.action == 'update'){
+           result = await SettingModel.update({
+                value:item.value
+            },{
+                where:{
+                    key:item.key
+                }
+            })
+        }
+        if(!result){
+            return ctx.redirect('back')
+        }
     })
     return ctx.redirect('/system/setting')
     // // 处理参数

@@ -7,7 +7,7 @@ module.exports={
         database:'water2017'
     },
     redisServer: {
-        host: '10.232.0.13',
+        host: '127.0.0.1',
         port: 6379,
         database: 7
     }

@@ -36,6 +36,8 @@ salt varchar(20)
 ) default charset=utf8;
 
 create table setting (
-key varchar(255),
-value varchar(255)
+`key` varchar(50) NOT NULL  primary key,
+`value` varchar(255),
+`name` varchar(50),
+`description` varchar(255)
 ) default charset=utf8;
