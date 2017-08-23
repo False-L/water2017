@@ -25,7 +25,6 @@ exports.update = async function (ctx,next) {
     let data = body.fields || {}
     var map = []
     //console.log('data',data)
-    console.log(H.settings)
     for(var key in data){
         var value = data[key]
         if(typeof H.settings[key] == 'undefined' ){

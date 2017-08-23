@@ -60,6 +60,6 @@ app.use(bootstrap)
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(content.routes(), content.allowedMethods())
-app.use(system.routes(), system.allowedMethods())
+app.use(system.routes(),system.allowedMethods())
 
 module.exports = app

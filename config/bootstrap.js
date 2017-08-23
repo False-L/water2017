@@ -9,6 +9,7 @@ module.exports = async function bootstrap (ctx,next) {
     console.log('bootstrap')
     global.H = {
         settings:{
+            ass:'sss'
         }
     }
     ctx.state.H={
@@ -21,11 +22,10 @@ module.exports = async function bootstrap (ctx,next) {
     // Redis 初始化
     
     client = redis.createClient( development.redisServer.port, development.redisServer.host)
-    client.select(development.redisServer.database,function(){
+    client.select(development.redisServer.database, async function(){
         global.redis = client
         //配置与缓存初次同步
-        syncSetting()
-
+        global.H.settings = await syncSetting()
     })
     await next()
 }
@@ -39,7 +39,7 @@ async function syncSetting() {
         var item = settings[i]
         results[item.key] = item.value
     }
-    H.settings = results
+    return results
 }
 
 // 同步过滤器
