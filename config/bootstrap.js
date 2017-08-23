@@ -1,33 +1,29 @@
-
 var redis = require("redis")
 
 const SettingModel = require('../api/models/Setting.js')
 const development = require('../config/env/development.js')
 
 
-module.exports = async function bootstrap (ctx,next) {
-    console.log('bootstrap')
+module.exports =  function bootstrap () {
+    // console.log('bootstrap')
     global.H = {
         settings:{
-            ass:'sss'
         }
     }
-    ctx.state.H={
-        settings:{
-            siteName:'aicocico',
-            siteClose:false,
-            siteCloseMessage:false
-        }
-    }
+    // ctx.state ={
+    //     H:{
+    //         settings:{
+    //         }
+    //     }
+    // }
     // Redis 初始化
-    
     client = redis.createClient( development.redisServer.port, development.redisServer.host)
     client.select(development.redisServer.database, async function(){
         global.redis = client
         //配置与缓存初次同步
-        global.H.settings = await syncSetting()
+        H.settings = await syncSetting()
     })
-    await next()
+    // await next()
 }
 // 同步配置
 async function syncSetting() {

@@ -17,6 +17,8 @@ const system = require('./api/routes/system')
 // error handler
 onerror(app)
 
+//全局参数导入
+bootstrap()
 
 
 // middlewares
@@ -53,7 +55,9 @@ app.use(async (ctx, next) => {
       logUtil.logError(ctx,error,ms)
   }
 })
-app.use(bootstrap)
+
+// app.use(bootstrap)
+
 // console.log('H')
 
 // routes

@@ -35,6 +35,7 @@ sequelize.define('threads',{
     tableName: 'threads',       
     timestamps: true,
 })
+
 var ThreadsModel = sequelize.models.threads
 
 module.exports = ThreadsModel
