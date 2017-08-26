@@ -9,7 +9,7 @@ const sequelize = require('../../utils/dbpool.js')
 
 sequelize.define('user',{
   access:{
-    type:Sequelize.ENUM,
+    type:Sequelize.ENUM('manager','user'),
     defaultValue:['manager']
   },
   name:{

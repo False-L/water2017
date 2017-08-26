@@ -1,10 +1,9 @@
 const router = require('koa-router')()
+var UserController = require('../controllers/UserController.js')
 
-router.prefix('/users')
+router.prefix('/user')
 
-router.get('/', function (ctx, next) {
-  ctx.body = 'this is a users response!'
-})
+router.get('/', UserController.index)
 
 router.get('/bar', function (ctx, next) {
   ctx.body = 'this is a users/bar response'

@@ -6,6 +6,7 @@
 
 
 exports.index = async function (ctx,next) {
+    // console.log(redis)
     let count 
     let result = await redis.dbsize(function(err,count){
         if(err){

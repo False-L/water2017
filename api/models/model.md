@@ -29,7 +29,7 @@ createdAttimestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
 insert into forum value (null,'dnf','haowan',20,null,1)
 
 create table user (
-access enum,
+access enum('manager','user') default 'manager',
 name varchar(20),
 password varchar(20),
 salt varchar(20)
