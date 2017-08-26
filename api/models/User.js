@@ -16,7 +16,7 @@ sequelize.define('user',{
     type:Sequelize.STRING,
     allowNull:false
   },
-  pasword:{
+  password:{
     type:Sequelize.STRING,
     allowNull:false
   },
@@ -27,7 +27,7 @@ sequelize.define('user',{
 },{      
   freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步      
   tableName: 'user',       
-  timestamps: false     
+  // timestamps: false     
 })
 var UserModel = sequelize.models.user
 
