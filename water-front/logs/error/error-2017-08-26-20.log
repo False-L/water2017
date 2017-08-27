@@ -1,0 +1,211 @@
+[2017-08-26 20:16:50.460] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user
+request client ip:  ::1
+request query:  {}
+response time: 516
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:915:19)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:980:4)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:127:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:855:21)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:181:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:852:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:849:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:790:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:993:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 20:19:22.884] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user
+request client ip:  ::1
+request query:  {}
+response time: 178
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:915:19)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:980:4)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:127:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:855:21)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:181:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:852:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:849:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:790:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:993:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 20:26:48.945] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user
+request client ip:  ::1
+request query:  {}
+response time: 436
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/index.pug:45
+    43|                                 td= item.name
+    44|                                 td
+  > 45|                                     +time(item.createdAt)
+    46|                                     br
+    47|                                     +time(item.updatedAt)
+    48|                                 td
+
+pug_mixins.time is not a function
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:915:19)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:980:4)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:127:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:855:21)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:181:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:852:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:849:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:790:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:993:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 20:37:37.607] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/2/update
+request client ip:  ::1
+request query:  {}
+response time: 4
+err name: TypeError
+err message: Cannot read property 'id' of undefined
+err stack: TypeError: Cannot read property 'id' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/UserController.js:93:57)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:43:18)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/lib/router.js:332:32)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:43:18)
+    at app.use (/Users/web/Desktop/demo/koaproject/water2017/app.js:47:13)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:43:18)
+    at views (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:61:12)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:42:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-compose/index.js:43:18)
+    at send.then.done (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-static/index.js:43:20)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 20:38:34.715] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/2/update
+request client ip:  ::1
+request query:  {}
+response time: 9
+err name: TypeError
+err message: data.access.join is not a function
+err stack: TypeError: data.access.join is not a function
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/UserController.js:106:35)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 20:41:38.263] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/2/update
+request client ip:  ::1
+request body: 
+{"fields":{"name":"likklin","password":"123456","access":"manager"},"files":{}}
+response time: 9
+err name: TypeError
+err message: Cannot read property 'split' of undefined
+err stack: TypeError: Cannot read property 'split' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/UserController.js:119:30)
+    at <anonymous>
+*************** error log end ***************
+

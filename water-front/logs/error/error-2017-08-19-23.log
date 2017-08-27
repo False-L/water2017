@@ -1,0 +1,400 @@
+[2017-08-19 23:07:25.505] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=1&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"1","pagesize":"20"}
+response time: 11
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:09:07.308] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=1&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"1","pagesize":"20"}
+response time: 70
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:10:31.775] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 18
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:12:13.322] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 68
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:14:01.373] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 76
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:15:05.444] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 65
+err name: SyntaxError
+err message: Unexpected token o in JSON at position 1
+err stack: SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at exports.index (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ThreadsController.js:67:16)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-19 23:15:22.271] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 72
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:16:11.274] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"","forum":"12","pagesize":"20"}
+response time: 69
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1', '20'' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:19:13.871] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=sjjs&ip=&forum=1&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"sjjs","ip":"","forum":"1","pagesize":"20"}
+response time: 11
+err name: Error
+err message: Invalid value [object Object]
+err stack: Error: Invalid value [object Object]
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/sql-string.js:50:11)
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:917:22)
+    at value.(.map.item (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2224:66)
+    at Array.map (native)
+    at Object.whereItemQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2224:49)
+    at _.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1937:25)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:4944:15
+    at baseForOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:3001:24)
+    at Function.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:13002:24)
+    at Object.whereItemsQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1936:9)
+    at Object.getWhereConditions (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2377:19)
+    at Object.selectQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1123:28)
+    at QueryInterface.rawSelect (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/query-interface.js:714:37)
+    at Function.aggregate (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1748:32)
+    at Promise.try.then (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1795:19)
+    at tryCatcher (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:143:10)
+*************** error log end ***************
+
+[2017-08-19 23:28:36.804] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=127.0.0.1&forum=1&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"127.0.0.1","forum":"1","pagesize":"20"}
+response time: 12
+err name: Error
+err message: Invalid value [object Object]
+err stack: Error: Invalid value [object Object]
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/sql-string.js:50:11)
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:917:22)
+    at Object.whereItemQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2306:22)
+    at _.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1937:25)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:4944:15
+    at baseForOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:3001:24)
+    at Function.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:13002:24)
+    at Object.whereItemsQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1936:9)
+    at Object.getWhereConditions (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2377:19)
+    at Object.selectQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1123:28)
+    at QueryInterface.rawSelect (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/query-interface.js:714:37)
+    at Function.aggregate (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1748:32)
+    at Promise.try.then (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1795:19)
+    at tryCatcher (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:800:20)
+*************** error log end ***************
+
+[2017-08-19 23:30:16.506] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=&ip=127.0.0.1&forum=1&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"","ip":"127.0.0.1","forum":"1","pagesize":"20"}
+response time: 72
+err name: Error
+err message: Invalid value [object Object]
+err stack: Error: Invalid value [object Object]
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/sql-string.js:50:11)
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:917:22)
+    at Object.whereItemQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2306:22)
+    at _.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1937:25)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:4944:15
+    at baseForOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:3001:24)
+    at Function.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:13002:24)
+    at Object.whereItemsQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1936:9)
+    at Object.getWhereConditions (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2377:19)
+    at Object.selectQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1123:28)
+    at QueryInterface.rawSelect (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/query-interface.js:714:37)
+    at Function.aggregate (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1748:32)
+    at Promise.try.then (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1795:19)
+    at tryCatcher (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:143:10)
+    at Immediate.Async.drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:800:20)
+*************** error log end ***************
+
+[2017-08-19 23:32:03.750] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=likklin&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"likklin","ip":"","forum":"12","pagesize":"20"}
+response time: 16
+err name: Error
+err message: Invalid value [object Object]
+err stack: Error: Invalid value [object Object]
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/sql-string.js:50:11)
+    at Object.escape (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:917:22)
+    at value.(.map.item (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2224:66)
+    at Array.map (native)
+    at Object.whereItemQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2224:49)
+    at _.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1937:25)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:4944:15
+    at baseForOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:3001:24)
+    at Function.forOwn (/Users/web/Desktop/demo/koaproject/water2017/node_modules/lodash/lodash.js:13002:24)
+    at Object.whereItemsQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1936:9)
+    at Object.getWhereConditions (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:2377:19)
+    at Object.selectQuery (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/abstract/query-generator.js:1123:28)
+    at QueryInterface.rawSelect (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/query-interface.js:714:37)
+    at Function.aggregate (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1748:32)
+    at Promise.try.then (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/model.js:1795:19)
+    at tryCatcher (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:512:31)
+    at Promise._settlePromise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:569:18)
+    at Promise._settlePromise0 (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:614:10)
+    at Promise._settlePromises (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:693:18)
+    at Async._drainQueue (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:133:16)
+    at Async._drainQueues (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/async.js:143:10)
+*************** error log end ***************
+
+[2017-08-19 23:49:28.468] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?page=1&keyword=2222&ip=&forum=12&pagesize=20
+request client ip:  ::ffff:127.0.0.1
+request query:  {"page":"1","keyword":"2222","ip":"","forum":"12","pagesize":"20"}
+response time: 78
+err name: SequelizeDatabaseError
+err message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@> '2222' OR `threads`.`title` @> '2222' OR `threads`.`content` @> '2222' OR `th' at line 1
+err stack: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@> '2222' OR `threads`.`title` @> '2222' OR `threads`.`content` @> '2222' OR `th' at line 1
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 23:55:28.172] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?parent=0
+request client ip:  ::ffff:127.0.0.1
+request query:  {"parent":"0"}
+response time: 121
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/content/threads/index.pug:10
+    8|                 hr
+    9|                 +form('get','/content/threads')
+  > 10|                     - var pagesize = req.query.pagesize || 20
+    11|                     - var pagenow = req.query.page || 1
+    12|                     input(type='hidden',name='page',value=pagenow)
+    13|                     +input('text','keyword','关键词',req.query.keyword,'包括正文，名称，邮箱。')
+
+Cannot read property 'query' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/content/threads/index.pug:10
+    8|                 hr
+    9|                 +form('get','/content/threads')
+  > 10|                     - var pagesize = req.query.pagesize || 20
+    11|                     - var pagenow = req.query.page || 1
+    12|                     input(type='hidden',name='page',value=pagenow)
+    13|                     +input('text','keyword','关键词',req.query.keyword,'包括正文，名称，邮箱。')
+
+Cannot read property 'query' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:828:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:181:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:825:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:640:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:816:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:813:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:810:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:806:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:1268:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+

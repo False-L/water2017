@@ -1,0 +1,343 @@
+[2017-08-17 00:00:06.153] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 406
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:00:06.176] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:00:06.474] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:00:07.401] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:00:25.244] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 184
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:00:25.266] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:00:25.506] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:00:34.095] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:18:02.602] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 418
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:18:02.625] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:18:02.880] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:18:12.082] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:19:03.580] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 221
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:19:03.601] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:19:03.869] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:19:19.071] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:22:55.124] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 405
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:22:55.149] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:22:55.407] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:23:04.161] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:24:13.455] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 419
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:24:13.477] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:24:13.738] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:24:20.334] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:28:12.319] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 421
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>创建版块 - 创建新的版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>创建版块</h1><p>创建新的版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-提交 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit()\">提交</a><a class=\"btn btn-default btn-name-重置页面 btn-sm btn-block\" type=\"button\" href=\"javascript:location.reload()\">重置页面</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"post\" action=\"/content/forum/create\" role=\"form\" enctype=\"multipart/form-data\"><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-name\">版块名</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-name\" type=\"text\" name=\"name\" id=\"input-name\" placeholder=\"版块名\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-header\">简介</label><div class=\"col-sm-10\"><textarea class=\"ckeditor form-control input-sm input-header\" type=\"text\" name=\"header\" id=\"input-header\" placeholder=\"简介\" status=\"status\">[object Object]</textarea><span class=\"help-block\">支持html，填写@time将会倍替换为冷却时间，填写@name将会被替换为版块名。</span></div></div><hr><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-cooldown\">冷却时间</label><div class=\"col-sm-10\"><input class=\"form-control input-sm input-cooldown\" type=\"text\" name=\"cooldown\" id=\"input-cooldown\" placeholder=\"冷却时间\"/></div></div><div class=\"form-group\"><label class=\"col-sm-2 control-label\" for=\"input-lock\">锁定</label><div class=\"col-sm-10\"><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-是\" name=\"lock\" value=\"true\"/>是</label><label class=\"radio-inline\"><input type=\"radio\" id=\"input-lock-否\" name=\"lock\" value=\"false\"/>否</label></div></div><script src=\"/ckeditor/ckeditor.js\"></script></form></div></div></div></body></html>"
+*************** response log end ***************
+
+[2017-08-17 00:28:12.343] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:28:12.587] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-17 00:28:19.972] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{}
+response time: 3
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+

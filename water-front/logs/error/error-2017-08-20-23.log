@@ -1,0 +1,133 @@
+[2017-08-20 23:20:14.107] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 12
+err name: TypeError
+err message: Cannot read property 'fields' of undefined
+err stack: TypeError: Cannot read property 'fields' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:23:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:21:26.383] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 15
+err name: TypeError
+err message: Cannot read property 'fields' of undefined
+err stack: TypeError: Cannot read property 'fields' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:25:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:23:09.218] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 14
+err name: TypeError
+err message: Cannot read property 'siteName' of undefined
+err stack: TypeError: Cannot read property 'siteName' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:28:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:23:53.725] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 14
+err name: TypeError
+err message: Cannot read property 'siteName' of undefined
+err stack: TypeError: Cannot read property 'siteName' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:29:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:26:35.901] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 13
+err name: TypeError
+err message: Cannot read property 'siteName' of undefined
+err stack: TypeError: Cannot read property 'siteName' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:29:33)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:27:12.660] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 14
+err name: TypeError
+err message: Cannot read property 'siteName' of undefined
+err stack: TypeError: Cannot read property 'siteName' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:29:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+
+[2017-08-20 23:28:35.230] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"","sitePagesize":"","siteCdnPath":"","thumbPlaceholderPath":"","metaDescription":"","metaKeyword":"","metaRobot":"","cookieExpires":"","htmlIndex":"","htmlForumList":"","htmlFooter":"","htmlBottom":""},"files":{}}
+response time: 16
+err name: TypeError
+err message: Cannot read property 'siteName' of undefined
+err stack: TypeError: Cannot read property 'siteName' of undefined
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:30:30)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+

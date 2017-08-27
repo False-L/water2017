@@ -1,0 +1,279 @@
+[2017-08-13 23:40:01.397] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 201
+err name: Error
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/layout/index.pug:4:13
+    2| 
+    3| - var H={settings:{
+  > 4|     siteName:'ss',
+-------------------^
+    5|     siteCdnPath:'/isis'
+    6| }}
+    7| - if H.settings.siteCdnPath
+
+unexpected text ":'ss'"
+err stack: Error: /Users/web/Desktop/demo/koaproject/water2017/views/layout/index.pug:4:13
+    2| 
+    3| - var H={settings:{
+  > 4|     siteName:'ss',
+-------------------^
+    5|     siteCdnPath:'/isis'
+    6| }}
+    7| - if H.settings.siteCdnPath
+
+unexpected text ":'ss'"
+    at makeError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-error/index.js:32:13)
+    at Lexer.error (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:58:15)
+    at Lexer.fail (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1304:10)
+    at Lexer.advance (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1364:15)
+    at Lexer.callLexerFunction (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1319:23)
+    at Lexer.getTokens (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1375:12)
+    at lex (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:12:42)
+    at Object.lex (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug/lib/index.js:99:27)
+    at Function.loadString [as string] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-load/index.js:44:24)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-load/index.js:31:27
+    at walkAST (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:23:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:104:20
+    at Array.reduce (native)
+    at walkAndMergeNodes (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:103:18)
+    at walkAST (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:37:19)
+    at load (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-load/index.js:13:10)
+*************** error log end ***************
+
+[2017-08-13 23:44:20.632] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 465
+err name: SyntaxError
+err message: Unexpected token (790:5)
+err stack: SyntaxError: Unexpected token (790:5)
+    at Parser.pp$4.raise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:2488:13)
+    at Parser.pp.unexpected (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:623:8)
+    at Parser.pp.semicolon (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:600:59)
+    at Parser.pp$1.parseVarStatement (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:973:8)
+    at Parser.pp$1.parseStatement (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:751:17)
+    at Parser.pp$1.parseTopLevel (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:672:23)
+    at Parser.parse (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:529:15)
+    at Object.parse (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/node_modules/acorn/dist/acorn.js:3378:37)
+    at reallyParse (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/index.js:22:16)
+    at findGlobals (/Users/web/Desktop/demo/koaproject/water2017/node_modules/acorn-globals/index.js:35:11)
+    at addWith (/Users/web/Desktop/demo/koaproject/water2017/node_modules/with/index.js:29:14)
+    at Compiler.compile (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-code-gen/index.js:129:12)
+    at generateCode (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-code-gen/index.js:32:39)
+    at compileBody (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug/lib/index.js:176:12)
+    at Object.exports.compile (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug/lib/index.js:243:16)
+    at handleTemplateCache (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug/lib/index.js:216:25)
+*************** error log end ***************
+
+[2017-08-13 23:45:28.502] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 174
+err name: Error
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/layout/index.pug:12:51
+    10|         meta(charset="utf-8")
+    11|         meta(name="viewport",content="width=device-width, initial-scale=1")
+  > 12|         title= ((page) ? page.name + ' - ' : '' ) //+ H.settings.siteName
+----------------------------------------------------------^
+    13|         +css('/css/bootstrap.min.css')
+    14|         +css('/css/fm-dashborad.css')
+    15|         +js('/js/jquery.min.js')
+
+Syntax Error: Line comments not allowed in an expression
+err stack: Error: /Users/web/Desktop/demo/koaproject/water2017/views/layout/index.pug:12:51
+    10|         meta(charset="utf-8")
+    11|         meta(name="viewport",content="width=device-width, initial-scale=1")
+  > 12|         title= ((page) ? page.name + ' - ' : '' ) //+ H.settings.siteName
+----------------------------------------------------------^
+    13|         +css('/css/bootstrap.min.css')
+    14|         +css('/css/fm-dashborad.css')
+    15|         +js('/js/jquery.min.js')
+
+Syntax Error: Line comments not allowed in an expression
+    at makeError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-error/index.js:32:13)
+    at Lexer.error (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:58:15)
+    at Lexer.assertExpression (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:86:12)
+    at Lexer.code (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:971:28)
+    at Lexer.callLexerFunction (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1319:23)
+    at Lexer.advance (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1352:15)
+    at Lexer.callLexerFunction (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1319:23)
+    at Lexer.getTokens (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:1375:12)
+    at lex (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-lexer/index.js:12:42)
+    at Object.lex (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug/lib/index.js:99:27)
+    at Function.loadString [as string] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-load/index.js:44:24)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-load/index.js:31:27
+    at walkAST (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:23:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:104:20
+    at Array.reduce (native)
+    at walkAndMergeNodes (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-walk/index.js:103:18)
+*************** error log end ***************
+
+[2017-08-13 23:45:54.533] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 471
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/layout/nav.pug:9
+    7|                 span.icon-bar
+    8|                 span.icon-bar
+  > 9|             a.navbar-brand(href='/')=H.settings.siteName
+    10|         nav.collapse.navbar-collapse.bs-navbar-collapse(role='navigation')
+    11|             ul.nav.navbar-nav
+    12|                 li.dropdown
+
+Cannot read property 'settings' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/layout/nav.pug:9
+    7|                 span.icon-bar
+    8|                 span.icon-bar
+  > 9|             a.navbar-brand(href='/')=H.settings.siteName
+    10|         nav.collapse.navbar-collapse.bs-navbar-collapse(role='navigation')
+    11|             ul.nav.navbar-nav
+    12|                 li.dropdown
+
+Cannot read property 'settings' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:838:58)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:819:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:948:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-13 23:46:24.047] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 230
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/layout/nav.pug:36
+    34|                         +dropdown-item('日志管理','/system/log')
+    35|                         +dropdown-item('FTP管理','/system/ftp')
+  > 36|                 if req.signedCookies.managerId
+    37|                     li.dropdown
+    38|                         +dropdown-toggle('当前登录：'+req.signedCookies.managerId)
+    39|                         +dropdown-menu
+
+Cannot read property 'signedCookies' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/layout/nav.pug:36
+    34|                         +dropdown-item('日志管理','/system/log')
+    35|                         +dropdown-item('FTP管理','/system/ftp')
+  > 36|                 if req.signedCookies.managerId
+    37|                     li.dropdown
+    38|                         +dropdown-toggle('当前登录：'+req.signedCookies.managerId)
+    39|                         +dropdown-menu
+
+Cannot read property 'signedCookies' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:904:8)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:819:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:946:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-13 23:46:55.544] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 281
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/layout/widget.pug:6
+    4| //- 消息提示
+    5| mixin message
+  > 6|     - var datas = req.flash();
+    7|     if datas
+    8|         - for ( var type in datas)
+    9|             - var alertClass = "alert alert-"+type
+
+Cannot read property 'flash' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/layout/widget.pug:6
+    4| //- 消息提示
+    5| mixin message
+  > 6|     - var datas = req.flash();
+    7|     if datas
+    8|         - for ( var type in datas)
+    9|             - var alertClass = "alert alert-"+type
+
+Cannot read property 'flash' of undefined
+    at Object.pug_interp [as message] (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:618:16)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:927:22)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:923:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:930:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-13 23:47:22.260] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 231
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/homepage/index.pug:3
+    1| extends ../layout/index
+    2| block body
+  > 3|     +message
+
+pug_mixins.message is not a function
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/homepage/index.pug:3
+    1| extends ../layout/index
+    2| block body
+  > 3|     +message
+
+pug_mixins.message is not a function
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:22)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:783:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+

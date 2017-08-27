@@ -1,0 +1,370 @@
+[2017-08-20 15:01:11.503] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 429
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:4
+    2| block body
+    3| 
+  > 4|     - var config = H.settings
+    5| 
+    6|     +row
+    7|         +col('md',3)
+
+Cannot read property 'settings' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:4
+    2| block body
+    3| 
+  > 4|     - var config = H.settings
+    5| 
+    6|     +row
+    7|         +col('md',3)
+
+Cannot read property 'settings' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:790:15)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:39:01.529] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 412
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:45:21.320] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 445
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:51:35.376] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 419
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:53:31.035] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 418
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:54:25.420] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 454
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:55:09.045] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 402
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 15:55:28.935] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /system/setting
+request client ip:  ::1
+request query:  {}
+response time: 465
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/system/setting/index.pug:21
+    19|             +form('post','/system/setting/update')
+    20|                 h2 网站配置
+  > 21|                 +input('text','siteName','站点名称',config.siteName)
+    22|                 +radio('siteClose','站点关闭','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteClose)
+    23|                 +textarea('siteCloseMessage','站点关闭信息',config.siteCloseMessage,'站点关闭时显示的信息，允许使用HTML代码。')
+    24|                 +radio('siteCaptcha','使用验证码','[{"key":"是","value":"true"},{"key":"否","value":"false"}]',config.siteCaptcha,'仅应用于发帖操作。忽略API方式，即API方式进行发帖操作依然无需验证码')
+
+Cannot read property 'siteName' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:839:52)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:171:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:832:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:829:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:792:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:900:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+

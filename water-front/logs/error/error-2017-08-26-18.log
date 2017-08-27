@@ -1,0 +1,225 @@
+[2017-08-26 18:28:59.309] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/create
+request client ip:  ::1
+request query:  {}
+response time: 384
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:5
+    3|     +row
+    4|         +col('md',3)
+  > 5|             +message
+    6|             +well
+    7|                 +button('primary','sm','提交','javascript:document.forms[0].submit()').btn-block
+    8|                 +button('default','sm','重置页面','javascript:location.reload()').btn-block
+
+pug_mixins.message is not a function
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:5
+    3|     +row
+    4|         +col('md',3)
+  > 5|             +message
+    6|             +well
+    7|                 +button('primary','sm','提交','javascript:document.forms[0].submit()').btn-block
+    8|                 +button('default','sm','重置页面','javascript:location.reload()').btn-block
+
+pug_mixins.message is not a function
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:786:22)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:783:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:824:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 18:29:19.767] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/create
+request client ip:  ::1
+request query:  {}
+response time: 243
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:815:14)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:801:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:822:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 18:29:56.204] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/create
+request client ip:  ::1
+request query:  {}
+response time: 384
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:815:14)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:801:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:822:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 18:31:07.942] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/create
+request client ip:  ::1
+request query:  {}
+response time: 382
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:815:14)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:801:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:822:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-26 18:32:05.221] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /user/create
+request client ip:  ::1
+request query:  {}
+response time: 392
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/user/edit.pug:11
+    9| 
+    10|         +col('md',9)
+  > 11|             +form('post',req.url)
+    12|                 hr
+    13|                 +input('text','name','用户名',data.name)
+    14|                 +input('password','password','密码',data.password)
+
+Cannot read property 'url' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:815:14)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:801:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:780:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:776:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:822:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
