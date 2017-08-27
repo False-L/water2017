@@ -12,8 +12,5 @@ router.post('/:id/update',koaBody,UserController.update)
 router.get('/:id/remove',UserController.remove)
 router.get('/remove',UserController.remove)
 
-router.get('/bar', function (ctx, next) {
-  ctx.body = 'this is a users/bar response'
-})
 
 module.exports = router
