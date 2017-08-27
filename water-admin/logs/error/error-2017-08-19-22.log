@@ -1,0 +1,65 @@
+[2017-08-19 22:06:36.858] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads/1/set?key=sage&value=true
+request client ip:  ::1
+request query:  {"key":"sage","value":"true"}
+response time: 10
+err name: SequelizeDatabaseError
+err message: Query was empty
+err stack: SequelizeDatabaseError: Query was empty
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 22:08:01.423] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads/2/set?key=sage&value=false
+request client ip:  ::1
+request query:  {"key":"sage","value":"false"}
+response time: 10
+err name: SequelizeDatabaseError
+err message: Query was empty
+err stack: SequelizeDatabaseError: Query was empty
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
+[2017-08-19 22:22:00.444] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads/2/update
+request client ip:  ::1
+request query:  {}
+response time: 63
+err name: SyntaxError
+err message: Unexpected token b in JSON at position 0
+err stack: SyntaxError: Unexpected token b in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ThreadsController.js:209:16)
+    at <anonymous>
+*************** error log end ***************
+

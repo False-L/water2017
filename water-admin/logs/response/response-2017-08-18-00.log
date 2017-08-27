@@ -1,0 +1,341 @@
+[2017-08-18 00:04:27.729] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:04:27.981] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:04:34.066] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{"fields":{"name":"112","header":"333","cooldown":"111","lock":"true"},"files":{}}
+response time: 10
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:10:56.504] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:10:56.733] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:11:05.405] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{"fields":{"name":"113","header":"333","cooldown":"111","lock":"true"},"files":{}}
+response time: 8
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:13:56.156] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:13:56.389] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:14:08.482] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{"fields":{"name":"112","header":"中文","cooldown":"1122","lock":"true"},"files":{}}
+response time: 9
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:18:24.814] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:18:25.071] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:20:13.826] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:20:14.067] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:20:23.451] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:20:23.695] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:21:00.961] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:21:01.242] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:22:02.439] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:22:02.730] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:22:11.726] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{"fields":{"name":"w ee","header":"ssd","cooldown":"1","lock":"false"},"files":{}}
+response time: 65
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:28:44.447] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:28:44.688] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:29:27.083] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:29:27.323] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:32:02.408] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:32:02.637] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /ckeditor/ckeditor.js
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-18 00:32:09.982] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request body: 
+{"fields":{"name":"sisjd","header":"222","cooldown":"11","lock":"true"},"files":{}}
+response time: 50
+response status: 302
+response body: 
+"Redirecting to <a href=\"/content/forum\">/content/forum</a>."
+*************** response log end ***************
+
+[2017-08-18 00:32:10.168] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum
+request client ip:  ::1
+request query:  {}
+response time: 180
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>版块管理 - 版块</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>版块管理</h1><p>版块</p></div></div><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-3\"><div class=\"well\"><a class=\"btn btn-primary btn-name-创建新的版块 btn-sm btn-block\" type=\"button\" href=\"/content/forum/create\">创建新的版块</a><hr><a class=\"btn btn-default btn-name-删除选中版块 btn-sm btn-block\" type=\"button\" href=\"javascript:document.forms[0].submit();\">删除选中版块</a></div></div><div class=\"col-md-9\"><form class=\"form-horizontal\" method=\"get\" action=\"/content/forum/remove\" role=\"form\" enctype=\"multipart/form-data\"><table class=\"table table-striped table-hover table-condensed\"><thead><tr><td width=\"50\"><a href=\"#\" onclick=\"\"></a></td><td width=\"70\">ID</td><td>标题</td><td width=\"120\">状态</td><td width=\"120\">CD</td><td width=\"200\">更新时间/发布时间</td><td width=\"150\">操作</td></tr></thead><tbody><tr><td><input type=\"checkbox\" name=\"ids\" value=\"1\"></td><td><a href=\"/content/threads?forum=1\">1</a></td><td><a href=\"/content/threads?forum=1\">dnf</a></td><td><span class=\"label label-danger\">锁定</span></td><td>20</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:1:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/1/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/1/update\">编辑</a>&nbsp;<a href=\"/content/forum/1/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"2\"></td><td><a href=\"/content/threads?forum=2\">2</a></td><td><a href=\"/content/threads?forum=2\">dnf</a></td><td><span class=\"label label-danger\">锁定</span></td><td>20</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:2:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/2/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/2/update\">编辑</a>&nbsp;<a href=\"/content/forum/2/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"3\"></td><td><a href=\"/content/threads?forum=3\">3</a></td><td><a href=\"/content/threads?forum=3\">112</a></td><td><span class=\"label label-danger\">锁定</span></td><td>111</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:3:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/3/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/3/update\">编辑</a>&nbsp;<a href=\"/content/forum/3/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"4\"></td><td><a href=\"/content/threads?forum=4\">4</a></td><td><a href=\"/content/threads?forum=4\">113</a></td><td><span class=\"label label-danger\">锁定</span></td><td>111</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:4:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/4/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/4/update\">编辑</a>&nbsp;<a href=\"/content/forum/4/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"5\"></td><td><a href=\"/content/threads?forum=5\">5</a></td><td><a href=\"/content/threads?forum=5\">112</a></td><td><span class=\"label label-danger\">锁定</span></td><td>1122</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:5:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/5/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/5/update\">编辑</a>&nbsp;<a href=\"/content/forum/5/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"6\"></td><td><a href=\"/content/threads?forum=6\">6</a></td><td><a href=\"/content/threads?forum=6\">w ee</a></td><td><span class=\"label label-success\">正常</span></td><td>1</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:6:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/6/set?key=lock&amp;value=true\">锁定</a>&nbsp;<a href=\"/content/forum/6/update\">编辑</a>&nbsp;<a href=\"/content/forum/6/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"7\"></td><td><a href=\"/content/threads?forum=7\">7</a></td><td><a href=\"/content/threads?forum=7\">lol</a></td><td><span class=\"label label-danger\">锁定</span></td><td>223</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:7:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/7/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/7/update\">编辑</a>&nbsp;<a href=\"/content/forum/7/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"8\"></td><td><a href=\"/content/threads?forum=8\">8</a></td><td><a href=\"/content/threads?forum=8\">英雄联萌</a></td><td><span class=\"label label-danger\">锁定</span></td><td>23</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:8:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/8/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/8/update\">编辑</a>&nbsp;<a href=\"/content/forum/8/remove\">删除</a></td></tr><tr><td><input type=\"checkbox\" name=\"ids\" value=\"9\"></td><td><a href=\"/content/threads?forum=9\">9</a></td><td><a href=\"/content/threads?forum=9\">sisjd</a></td><td><span class=\"label label-danger\">锁定</span></td><td>11</td><td><br><font color=\"#999999\"></font></td><td><a href=\"/system/cache/flush?key=forum:9:*\">清除该版块缓存</a>&nbsp;<a href=\"/content/forum/9/set?key=lock&amp;value=false\">解锁</a>&nbsp;<a href=\"/content/forum/9/update\">编辑</a>&nbsp;<a href=\"/content/forum/9/remove\">删除</a></td></tr></tbody></table></form></div></div></div></body></html>"
+*************** response log end ***************
+

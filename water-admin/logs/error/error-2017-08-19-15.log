@@ -1,0 +1,56 @@
+[2017-08-19 15:52:12.076] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 108
+err name: TypeError
+err message: Cannot read property 'name' of undefined
+err stack: TypeError: Cannot read property 'name' of undefined
+    at exports.create (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ForumController.js:61:27)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-19 15:52:53.120] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 87
+err name: TypeError
+err message: Cannot read property 'name' of undefined
+err stack: TypeError: Cannot read property 'name' of undefined
+    at exports.create (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ForumController.js:61:27)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-19 15:53:09.560] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 72
+err name: TypeError
+err message: Cannot read property 'name' of undefined
+err stack: TypeError: Cannot read property 'name' of undefined
+    at exports.create (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ForumController.js:61:27)
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-19 15:53:33.403] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/forum/create
+request client ip:  ::1
+request query:  {}
+response time: 76
+err name: TypeError
+err message: Cannot read property 'name' of undefined
+err stack: TypeError: Cannot read property 'name' of undefined
+    at exports.create (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/ForumController.js:61:27)
+    at <anonymous>
+*************** error log end ***************
+

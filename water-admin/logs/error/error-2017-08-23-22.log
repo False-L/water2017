@@ -1,0 +1,25 @@
+[2017-08-23 22:32:46.464] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /system/setting/update
+request client ip:  ::1
+request body: 
+{"fields":{"siteName":"aicocico","siteClose":"false","siteCloseMessage":"222","siteCaptcha":"false","sitePagesize":"334","siteCdnPath":"www.baidu.com","allowUpload":"true","allowThumb":"true","thumbPlaceholderPath":"ORZ","metaDescription":"","metaKeyword":"","metaRobot":"","cookieSignup":"true","cookieExpires":"","htmlIndex":"shousjjss","htmlForumList":"123333","htmlFooter":"3333","htmlBottom":"333"},"files":{}}
+response time: 18
+err name: TypeError
+err message: SettingModel.update(...).exec is not a function
+err stack: TypeError: SettingModel.update(...).exec is not a function
+    at handle (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:85:16)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/async/dist/async.js:1069:9
+    at eachOfArrayLike (/Users/web/Desktop/demo/koaproject/water2017/node_modules/async/dist/async.js:1003:9)
+    at eachOf (/Users/web/Desktop/demo/koaproject/water2017/node_modules/async/dist/async.js:1051:5)
+    at _asyncMap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/async/dist/async.js:1067:5)
+    at Object.map (/Users/web/Desktop/demo/koaproject/water2017/node_modules/async/dist/async.js:1056:16)
+    at exports.update (/Users/web/Desktop/demo/koaproject/water2017/api/controllers/SettingController.js:91:12)
+    at dispatch (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-body/index.js:98:14
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:169:7)
+*************** error log end ***************
+

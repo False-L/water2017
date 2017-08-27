@@ -1,0 +1,36 @@
+[2017-08-15 22:53:40.247] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /
+request client ip:  ::1
+request query:  {}
+response time: 473
+response status: 200
+response body: 
+"<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>首页 - 顺猴者昌，逆猴者亡</title><link href=\"/stylesheets/bootstrap.min.css\" rel=\"stylesheet\"/><link href=\"/stylesheets/fm-dashborad.css\" rel=\"stylesheet\"/><script src=\"/javascripts/jquery.min.js\"></script><script src=\"/javascripts/bootstrap.min.js\"></script></head><body><header class=\"navbar navbar-static-top bs-docs-nav\" id=\"top\" role=\"banner\"><div class=\"container-fluid\"><div class=\"navbar-header\"><button class=\"navbar-toggle\" type=\"button\" data-toggle=\"collapse\" data-target=\".bs-navbar-collapse\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button><a class=\"navbar-brand\" href=\"/\"></a></div><nav class=\"collapse navbar-collapse bs-navbar-collapse\" role=\"navigation\"><ul class=\"nav navbar-nav\"><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">内容<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/content/forum\">版块管理</a></li><li><a href=\"/content/threads\">贴子管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">用户<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/user\">用户管理</a></li><li><a href=\"/user/access\">权限管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">组件<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/components/ad\">广告管理</a></li><li><a href=\"/components/module\">模块管理</a></li></ul></li><li class=\"dropdown\"><a class=\"dropdown-toggle\" href=\"#\" data-toggle=\"dropdown\">系统<span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/system/setting\">系统配置</a></li><li><a href=\"/system/filter\">过滤管理</a></li><li><a href=\"/system/cache\">缓存管理</a></li><li><a href=\"/system/log\">日志管理</a></li><li><a href=\"/system/ftp\">FTP管理</a></li></ul></li></ul></nav></div></header><div class=\"bs-docs-header\"><div class=\"container-fluid\"><h1>首页</h1><p>顺猴者昌，逆猴者亡</p></div></div><div class=\"container-fluid\"></div></body></html>"
+*************** response log end ***************
+
+[2017-08-15 22:53:40.626] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /favicon.ico
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2017-08-15 22:53:42.714] [INFO] resLogger - 
+*************** response log start ***************
+request method: GET
+request originalUrl:  /content/forum
+request client ip:  ::1
+request query:  {}
+response time: 0
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+

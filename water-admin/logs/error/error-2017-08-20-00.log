@@ -1,0 +1,74 @@
+[2017-08-20 00:01:20.884] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads?parent=0
+request client ip:  ::ffff:127.0.0.1
+request query:  {"parent":"0"}
+response time: 227
+err name: TypeError
+err message: /Users/web/Desktop/demo/koaproject/water2017/views/content/threads/index.pug:10
+    8|                 hr
+    9|                 +form('get','/content/threads')
+  > 10|                     - var pagesize = req.query.pagesize || 20
+    11|                     - var pagenow = req.query.page || 1
+    12|                     input(type='hidden',name='page',value=pagenow)
+    13|                     +input('text','keyword','关键词',req.query.keyword,'包括正文，名称，邮箱。')
+
+Cannot read property 'query' of undefined
+err stack: TypeError: /Users/web/Desktop/demo/koaproject/water2017/views/content/threads/index.pug:10
+    8|                 hr
+    9|                 +form('get','/content/threads')
+  > 10|                     - var pagesize = req.query.pagesize || 20
+    11|                     - var pagenow = req.query.page || 1
+    12|                     input(type='hidden',name='page',value=pagenow)
+    13|                     +input('text','keyword','关键词',req.query.keyword,'包括正文，名称，邮箱。')
+
+Cannot read property 'query' of undefined
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:828:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:181:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:825:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:640:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:816:20)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:55:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:813:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:36:10)
+    at block (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:810:19)
+    at Object.pug_interp (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:13:10)
+    at eval (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:806:25)
+    at template (eval at wrap (/Users/web/Desktop/demo/koaproject/water2017/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:1268:72)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:809:16
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/debuggability.js:300:9)
+    at Promise._resolveFromExecutor (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/Users/web/Desktop/demo/koaproject/water2017/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:137:10)
+    at exports.pug (/Users/web/Desktop/demo/koaproject/water2017/node_modules/consolidate/lib/consolidate.js:793:10)
+    at /Users/web/Desktop/demo/koaproject/water2017/node_modules/koa-views/lib/index.js:53:20
+    at <anonymous>
+*************** error log end ***************
+
+[2017-08-20 00:01:36.015] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /content/threads/1/set?key=sage&value=true
+request client ip:  ::ffff:127.0.0.1
+request query:  {"key":"sage","value":"true"}
+response time: 9
+err name: SequelizeDatabaseError
+err message: Query was empty
+err stack: SequelizeDatabaseError: Query was empty
+    at Query.formatError (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:222:16)
+    at Query.connection.query [as onResult] (/Users/web/Desktop/demo/koaproject/water2017/node_modules/sequelize/lib/dialects/mysql/query.js:55:23)
+    at Query.Command.execute (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/commands/command.js:30:12)
+    at Connection.handlePacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:515:28)
+    at PacketParser.onPacket (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:94:16)
+    at PacketParser.executeStart (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/packet_parser.js:77:14)
+    at Socket.<anonymous> (/Users/web/Desktop/demo/koaproject/water2017/node_modules/mysql2/lib/connection.js:102:29)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at TCP.onread (net.js:589:20)
+*************** error log end ***************
+
