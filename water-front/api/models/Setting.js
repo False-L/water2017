@@ -28,4 +28,22 @@ sequelize.define('setting',{
 })
 var SettingModel = sequelize.models.setting
 
+SettingModel.exportToGlobal = async function (){
+    let res = await SettingModel.findAll()
+    res = JSON.stringify(res)
+    rawSettings = JSON.parse(res)
+
+    let handledSettings = {};
+    if(rawSettings&&rawSettings.length>0){
+      for (var i in rawSettings) {
+        var item = rawSettings[i];
+        handledSettings[item.key] = item.value;
+      }
+    }
+    // console.log(rawSettings)
+    return handledSettings
+}
+
+
+
 module.exports = SettingModel

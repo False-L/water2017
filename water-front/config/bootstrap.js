@@ -21,21 +21,15 @@ module.exports =  function bootstrap () {
     client.select(development.redisServer.database, async function(){
         global.redis = client
         //配置与缓存初次同步
-        H.settings = await syncSetting()
+       await syncSetting()
+
     })
     // await next()
 }
 // 同步配置
-async function syncSetting() {
-    let settings = await SettingModel.findAll()
-    settings = JSON.stringify(settings)
-    settings = JSON.parse(settings)
-    let results = {}
-    for(var i in settings){
-        var item = settings[i]
-        results[item.key] = item.value
-    }
-    return results
+ async function syncSetting() {
+   let settings = await SettingModel.exportToGlobal()
+    H.settings = settings
 }
 
 // 同步过滤器

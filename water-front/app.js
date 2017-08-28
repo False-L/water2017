@@ -11,9 +11,9 @@ const logUtil = require('./utils/log_util.js')
 const bootstrap = require('./config/bootstrap.js')
 
 const index = require('./api/routes/index')
-const users = require('./api/routes/users')
-const content = require('./api/routes/content')
-const system = require('./api/routes/system')
+// const users = require('./api/routes/users')
+// const content = require('./api/routes/content')
+// const system = require('./api/routes/system')
 // error handler
 onerror(app)
 
@@ -37,6 +37,7 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
+
 console.log('已经启动')
 
 // logger
@@ -62,8 +63,8 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
-app.use(content.routes(), content.allowedMethods())
-app.use(system.routes(),system.allowedMethods())
+// app.use(users.routes(), users.allowedMethods())
+// app.use(content.routes(), content.allowedMethods())
+// app.use(system.routes(),system.allowedMethods())
 
 module.exports = app

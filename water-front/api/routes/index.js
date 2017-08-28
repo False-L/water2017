@@ -2,21 +2,14 @@ const router = require('koa-router')()
 
 var HomepageController = require('../controllers/HomepageController.js')
 
+
 router.get('/', HomepageController.index)
-router.get('/signin',HomepageController.signin)
-router.post('/signin',HomepageController.signin)
-router.get('/signout',HomepageController.signout)
+router.get('/:format?', HomepageController.index)
+router.get('/homepage/menu/:format?',HomepageController.menu)
+// router.get('/homepage/ref/:format?',HomepageController.ref)
+// router.get('/homepage/isManager',HomepageController.isManager)
+// router.get('/search/:format?',HomepageController.search)
+// router.get('/homepage/switchType',HomepageController.switchType)
 
-
-router.get('/posts', async (ctx, next) => {
-  
-  ctx.body = 'koa2 string'
-})
-
-router.get('/json', async (ctx, next) => {
-  ctx.body = {
-    title: 'koa2 json'
-  }
-})
 
 module.exports = router
