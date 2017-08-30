@@ -67,9 +67,7 @@ exports.update = async function (ctx,next) {
     // return ctx.redirect('/system/setting')
     // 处理参数
     var handle = async function(item,callback){
-        console.log('item',item)
         if(item.action == 'create'){
-          console.log('create')
           let res = await SettingModel.create({
                 key:item.key,
                 value:item.value

@@ -63,9 +63,8 @@ exports.index = async function (ctx,next) {
     } else {
         sort['id'] = 'desc';
     }
-    console.log(map)
-
     let threads = await ThreadsModel.findAndCount({
+        // order:sort,
         where: map,
         offset: parseInt(pagesize)*(page-1),
         limit: parseInt(pagesize)
