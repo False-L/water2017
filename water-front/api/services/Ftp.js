@@ -13,24 +13,25 @@ var path = require('path')
 var ftp = require('ftp')
 var fs = require('fs')
 
+
 module.exports = {
     
     ready: function () {
+            var promise = new Promise()
             // Ftp 初始化
             var ftpClient = new ftp();
     
             ftpClient.on('ready', function () {
-                deferred.resolve(ftpClient);
+                promise.resolve(ftpClient);
             });
     
             ftpClient.on('error', function (err) {
-                sails.log.error(err);
-                deferred.reject(err);
+                // sails.log.error(err);
+                promise.reject(err);
                 ftpClient.end();
             });
     
             ftpClient.connect(sails.config.connections.ftpServer);
-    
-            return deferred.promise;
+            return promise
         }
 };

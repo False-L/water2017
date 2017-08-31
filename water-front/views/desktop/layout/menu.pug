@@ -9,7 +9,7 @@ div#h-menu-search
 
 ul#h-menu-content.uk-nav.uk-nav-parent-icon.uk-nav-side(data-uk-nav="{multiple:true}")
     - try {
-        //- - console.log(H.settings)
+        - console.log(H.settings)
         - var forumList = JSON.parse(H.settings.htmlForumList)
     - } catch(e) {
         - var forumList = {}

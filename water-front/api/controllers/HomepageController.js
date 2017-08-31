@@ -21,6 +21,8 @@
 // }
 const CacheSerives = require('../services/Cache.js')
 const utility = require('../services/utility.js')
+const ForumModel = require('../models/Forum.js')
+
 module.exports = {
     
     index :async function (ctx,next) {
@@ -81,13 +83,13 @@ module.exports = {
             .then(function (cache) {
         
                 if(isAPI){
-                    return res.json(JSON.parse(cache));
+                    return ctx.json(JSON.parse(cache));
                 }
         
                 res.send(200, cache);
         
             })
-            .fail(function () {
+            .catch(function (err) {
         
                 if(isAPI){
         
@@ -96,7 +98,12 @@ module.exports = {
                         forum:{}
                     };
         
-                    sails.models.forum.find()
+                    ForumModel.findAll()
+                        .then(res=>{
+                            res = JSON.stringify(res)
+                            res = JSON.parse(res)
+                            return res
+                        })
                         .then(function(rawForums){
         
                             for (var i in rawForums){
@@ -106,14 +113,12 @@ module.exports = {
         
                             output.forum = rawForums;
         
-                            sails.services.cache.set(key, output);
-                                return res.json(output);
-        
+                            CacheSerives.set(key, output);
+                                return ctx.json(output);
                             })
-                                .fail(function(err){
-                                    return res.serverError(err);
-                                });
-        
+                        .catch(function(err){
+                                    return false
+                        })
                 } else {
                     ctx.render('homepage/menu', {
                             page: {
@@ -125,7 +130,7 @@ module.exports = {
                         }
                         CacheSerives.set(key, html);
                             ctx.send(200, html);
-                        });
+                        })
                      }
         });
     },    
