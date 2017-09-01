@@ -7,6 +7,7 @@ const ForumModel = require('../api/models/Forum.js')
 module.exports =  function bootstrap () {
     
     // 将常用依赖导入全局
+    global._ = require('lodash')
     global.Promise = require('bluebird')
     // console.log('bootstrap')
     global.H = {
@@ -33,7 +34,7 @@ module.exports =  function bootstrap () {
 function syncSetting() {
     SettingModel.exportToGlobal()
     .then(function(settings){
-        console.log(settings)
+        console.log('setting',settings)
         H.settings = settings 
     }).catch(err=>{
         console.log(err)

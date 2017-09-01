@@ -13,7 +13,7 @@ sequelize.define('setting',{
     type:Sequelize.STRING,
     primaryKey: true
   },
-  value:Sequelize.STRING,
+  value:Sequelize.TEXT,
   name:{
     type:Sequelize.STRING
   },

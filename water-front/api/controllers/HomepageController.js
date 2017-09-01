@@ -142,7 +142,7 @@ module.exports = {
         var result = {
             success: false
         }
-        
+    
         // if (ctx.request.signedCookies.managerId) {
         //     result.success= true;
         // }
