@@ -43,8 +43,7 @@ sequelize.define('threads',{
 var ThreadsModel = sequelize.models.threads
 
 ThreadsModel.list = function (forumId, page) {
-    var promise = new Promise()
-
+    return  new Promise(function(resolve,reject){
     // 页数
     page = Math.ceil(page)
     let threads = ThreadsModel.findAll({
@@ -52,9 +51,9 @@ ThreadsModel.list = function (forumId, page) {
             forum: forumId, 
             parent: 0 
        },
-       order:'updatedAt DESC',
-       offset:(page-1)*limit,
-       limit:limit
+       order:[['updatedAt', 'DESC']],
+       offset:(page-1)*20,
+       limit:20
    }).then(threads=>{
         var result = {}
         result.threads = threads
@@ -80,14 +79,14 @@ ThreadsModel.list = function (forumId, page) {
                     for (var i in replys) {
                         result.replys['t' + replys[i].id] = replys[i];
                     }
-                    promise.resolve(result)
+                    resolve(result)
                 }).catch(err=>{
-                    promise.reject(err)
+                    reject(err)
                 })
         } else {
-            promise.resolve(result)            
+            resolve(result)            
         }
-    return promise
+    })
    })
 }
 /**
@@ -95,31 +94,44 @@ ThreadsModel.list = function (forumId, page) {
  * @param {int} threadsId 贴子ID
  * @param {int} page=1 页数
  */
-ThreadsModel.getReply = async function (threadsId, page){
-    // 页数
-    page = Math.ceil(page)
-    let threads = await ThreadsModel.findAll({
-        where:{parent:threadsId},
-        order:'updatedAt ASC',
-        offset:(page-1)*limit,
-        limit:limit
-    }).then(threads=>{
-        return threads
-    }).catch(err=>{
-        return err
-    })
-}
-ThreadsModel.uploadAttachment = async function (uploadError, uploadedFiles) {
-    
-    if (uploadError) {
-        return 
-    }
-    // 0. 如果没有上传文件则直接pass
-    if (!uploadedFiles || uploadedFiles.length == 0) {
-        deferred.resolve({image: '', thumb: ''});
-        return deferred.promise;
-    }
+ThreadsModel.getReply = function (threadsId, page){
+    return new Promise(function(resolve,reject){
+         // 页数
+        page = Math.ceil(page)
 
+        ThreadsModel.findAll({
+            where:{parent:threadsId},
+            order:'updatedAt ASC',
+            offset:(page-1)*20,
+            limit:20
+        }).then(threads=>{
+            resolve(threads)
+        }).catch(err=>{
+            reject(err)
+        })
+    })
+   
+}
+ThreadsModel.uploadAttachment = function (uploadError, uploadedFiles) {
+    return new Promise(function(resolve,reject){
+        if (uploadError) {
+            reject(uploadError)
+            return this
+        }
+        // 0. 如果没有上传文件则直接pass
+        if (!uploadedFiles || uploadedFiles.length == 0) {
+            resolve({image: '', thumb: ''});
+            return this
+        }
+        if (H.settings.allowUpload && H.settings.allowUpload == 'false'){
+            reject('系统暂时禁止了上传图片，请取消附件再重新发串。');
+            return this
+        }
+        var uploadedFile = uploadedFiles[0]
+        fs.readFile(uploadedFile.fd, function (readFileError, uploadedFileBuffer) {
+
+        })
+    })
 }
 
 module.exports = ThreadsModel

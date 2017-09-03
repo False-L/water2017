@@ -68,7 +68,7 @@ module.exports = {
      * 版块列表
      * TODO：需要修改
      */
-    menu: function (ctx, next) {
+    menu: async function (ctx, next) {
         
         var key = 'homepage:menu';
         
@@ -78,76 +78,77 @@ module.exports = {
         if (isAPI) {
             key += ':api';
         }
-        
-        CacheSerives.get(key)
-            .then(function (cache) {
-        
-                if(isAPI){
-                    return ctx.json(JSON.parse(cache));
+        try{
+            let cache = await  CacheSerives.get(key)
+            if(isAPI){
+                return ctx.body = JSON.parse(cache)
+            }
+            ctx.body = {cache}
+        }
+        catch(err)
+        {
+            if(isAPI){
+                var output = {
+                    success:true,
+                forum:{}
                 }
-        
-                res.send(200, cache);
-        
-            })
-            .catch(function (err) {
-        
-                if(isAPI){
-        
-                    var output = {
-                        success:true,
-                        forum:{}
-                    };
-        
-                    ForumModel.findAll()
-                        .then(res=>{
-                            res = JSON.stringify(res)
-                            res = JSON.parse(res)
-                            return res
-                        })
-                        .then(function(rawForums){
-        
-                            for (var i in rawForums){
-                                rawForums[i]['createdAt'] = (rawForums[i]['createdAt']) ? new Date(rawForums[i]['createdAt']).getTime() : null;
-                                rawForums[i]['updatedAt'] = (rawForums[i]['updatedAt']) ? new Date(rawForums[i]['updatedAt']).getTime() : null;
-                            }
-        
-                            output.forum = rawForums;
-        
-                            CacheSerives.set(key, output);
-                                return ctx.json(output);
-                            })
-                        .catch(function(err){
-                                    return false
-                        })
-                } else {
-                    ctx.render('homepage/menu', {
-                            page: {
-                                    title: '版块列表'
-                            }
-                    }, function (err, html) {
-                        if (err) {
-                            // return ctx.serverError(err);
-                        }
-                        CacheSerives.set(key, html);
-                            ctx.send(200, html);
-                        })
-                     }
-        });
+                try{
+                    rawForums = await ForumModel.findAll().then(res=>{
+                        res = JSON.stringify(res)
+                        res = JSON.parse(res)
+                        return res
+                    })
+                    for (var i in rawForums){
+                        rawForums[i]['createdAt'] = (rawForums[i]['createdAt']) ? new Date(rawForums[i]['createdAt']).getTime() : null;
+                        rawForums[i]['updatedAt'] = (rawForums[i]['updatedAt']) ? new Date(rawForums[i]['updatedAt']).getTime() : null;
+                    }
+
+                    output.forum = rawForums
+                    CacheSerives.set(key, output)
+                    return ctx.body ={output}
+                }
+                catch(err){
+                    console.log(err)
+                    return ctx.body = {
+                        msg:'err'
+                    }
+                }
+            }else{
+                await ctx.ender('homepage/menu', {
+                    page: {
+                        title: '版块列表'
+                    }
+                })
+            }
+        }
     },    
     /**
      * /homepage/isManager
      */
-    isManager:function(ctx,next){
+    isManager: async function(ctx,next){
         
         var result = {
             success: false
         }
     
-        // if (ctx.request.signedCookies.managerId) {
-        //     result.success= true;
-        // }
-        ctx.body = {
-            result
+        if (ctx.request.signedCookies.managerId) {
+            result.success= true;
         }
+        return  ctx.body = {result}
     },
+    /**
+     * 搜索
+     */
+    search: async function(ctx,next){
+        ctx.request.wantType = utility.checkWantType(ctx.params.format)
+        ctx.request.cacheKey ='homepage:search:' + ctx.request.wantType.suffix
+        var data = {
+            page: {
+                title: '搜索'
+            },
+            code: 200,
+            success: true
+        }
+        return ctx.render('desktop/homepage/search',data)
+    }
 }

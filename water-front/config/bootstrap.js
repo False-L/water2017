@@ -34,7 +34,7 @@ module.exports =  function bootstrap () {
 function syncSetting() {
     SettingModel.exportToGlobal()
     .then(function(settings){
-        console.log('setting',settings)
+        // console.log('setting',settings)
         H.settings = settings 
     }).catch(err=>{
         console.log(err)

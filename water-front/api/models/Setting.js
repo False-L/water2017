@@ -27,7 +27,7 @@ sequelize.define('setting',{
 })
 var SettingModel = sequelize.models.setting
 
-SettingModel.exportToGlobal = function (){
+SettingModel.exportToGlobal = function () {
   var promise = new Promise(function(resolve,reject){
     SettingModel.findAll()
     .then(res=>{
