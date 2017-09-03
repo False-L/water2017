@@ -6,6 +6,9 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaBody = require('koa-body')
+const session = require('koa-session')
+const flash = require('koa-flash-simple')
+
 
 const logUtil = require('./utils/log_util.js')
 const bootstrap = require('./config/bootstrap.js')
@@ -28,7 +31,8 @@ app.use(koaBody(),{multipart:true})
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
-
+app.use(session(app)) // Session middleware has to be added before flash
+app.use(flash())
 
 app.use(json())
 app.use(logger())

@@ -8,6 +8,7 @@ module.exports =  function bootstrap () {
     
     // 将常用依赖导入全局
     global.Promise = require('bluebird')
+    global._ = require('lodash')
     // console.log('bootstrap')
     global.H = {
         settings:{
@@ -18,8 +19,8 @@ module.exports =  function bootstrap () {
     client.select(development.redisServer.database, async function(){
         global.redis = client
         //配置与缓存初次同步
-        console.log('bootstarp')
-        H.settings = await syncSetting()
+        // console.log('bootstarp')
+        syncSetting()
         ForumModel.initialize().then(res=>{
             console.log("同步成功")
         }).catch(err=>{
@@ -30,16 +31,14 @@ module.exports =  function bootstrap () {
 
 }
 // 同步配置
-async function syncSetting() {
-    let settings = await SettingModel.findAll()
-    settings = JSON.stringify(settings)
-    settings = JSON.parse(settings)
-    let results = {}
-    for(var i in settings){
-        var item = settings[i]
-        results[item.key] = item.value
-    }
-    return results
+function syncSetting() {
+    SettingModel.exportToGlobal()
+    .then(function(settings){
+        // console.log(settings)
+        H.settings = settings 
+    }).catch(err=>{
+        // console.log(err)
+    })
 }
 
 // 同步过滤器

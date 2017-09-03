@@ -10,9 +10,10 @@ module.exports = {
          * 获取缓存
          */
         get: function (key) {
+            var self =this 
             let promise = new Promise(function(resolve,reject){
     
-                if(!sails.config.cache){
+                if(!self){
                     reject(null);
                     return promise
                 }

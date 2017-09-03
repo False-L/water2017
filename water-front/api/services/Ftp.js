@@ -10,28 +10,24 @@
 * - unlink(path) 删除对应文件
 */
 var path = require('path')
-var ftp = require('ftp')
+var ftp = require('promise-ftp');
 var fs = require('fs')
 
+var config = require('../../config/env/development.js') 
 
 module.exports = {
     
     ready: function () {
-            var promise = new Promise()
-            // Ftp 初始化
-            var ftpClient = new ftp();
-    
-            ftpClient.on('ready', function () {
-                promise.resolve(ftpClient);
-            });
-    
-            ftpClient.on('error', function (err) {
-                // sails.log.error(err);
-                promise.reject(err);
-                ftpClient.end();
-            });
-    
-            ftpClient.connect(sails.config.connections.ftpServer);
-            return promise
-        }
+            return new Promise(function(resolve,reject){
+                // Ftp 初始化
+                var ftpClient = new ftp()
+                ftpClient.connect(config.ftpServer)
+                    .then(function (serverMessage) {
+                        console.log('Server message: '+serverMessage)
+                        resolve(ftpClient)
+                    }).catch(err=>{
+                        reject(err)
+                    })
+            })        
+    }
 };

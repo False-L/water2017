@@ -1,4 +1,10 @@
 module.exports={
+    ftpServer:{
+        host:'127.0.0.1',
+        port:21,
+        user:'web',
+        password:'123456'
+    },
     mysqlServer:{
         host:'127.0.0.1',
         user:'root',

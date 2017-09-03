@@ -18,7 +18,6 @@ exports.index = async function (ctx,next) {
 }
 
 exports.update = async function (ctx,next) {
-    console.log('setting',H.settings)
     var body = ctx.request.body || {}
     body = JSON.stringify(body)
     body = JSON.parse(body)
