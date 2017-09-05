@@ -1,357 +1,128 @@
 /**
  * ThreadsController
  *
- * @description :: 贴子
+ * @module      :: Controller
+ * @description    :: 贴子
  */
+
+var gm = require('gm')
+, os = require('os') 
+, fs = require('fs')
+, path = require('path')
+, imageMagick = gm.subClass({ imageMagick: true })
+
 const ForumModel = require('../models/Forum.js')
 const ThreadsModel = require('../models/Threads.js')
+const utility = require('../services/utility.js')
+const CacheService = require('../services/Cache.js')
 
-exports.index = async function (ctx,next) {
+module.exports = {
+    /**
+     * 获取单个帖子列表
+     */
+    index : async function (ctx,next) {
+        //ThreadsId 有效性
+        var threadsId = Number(ctx.params.tid)
+        if (!threadsId) {
+            return res.forbidden('ID不合法');
+        }
+        //翻页
+        var pageIndex = (ctx.query.page && ctx.query.page == 'last') ? 'last' : ( Number(ctx.query.page) || 1 )
+        ctx.request.wantType = utility.checkWantType(ctx.params.format)
+        ctx.cacheKey = 'threads:' + threadsId + ':' + pageIndex + ':' + ctx.request.wantType.suffix
+        try{
+            let cache = await CacheService.get(req.cacheKey)
+            if(ctx.wantType.param == 'json'){
+                // return sails.config.jsonp ? res.jsonp(JSON.parse(cache)) : res.json(JSON.parse(cache));
+            } else if(ctx.wantType.param == 'xml'){
+                // res.set('Content-Type','text/xml');
+            }
 
-    let selectList = await ForumModel.findAll()
-    selectList = JSON.stringify(selectList)
-    selectList = JSON.parse(selectList)
-    selectList=selectList.map(item=>{
-        let select= {}
-        select.key = item.name
-        select.value = item.id
-        return select
-    })
-
-    var page = ctx.query.page || 1
-    var pagesize = ctx.query.pagesize || 20
-
-    var map = {};
-    var sort = {}; 
-    if (ctx.query.keyword) {
-        map['$or'] = [
-            {name: { 
-                '$like':ctx.query.keyword }
-            },
-            {title: { 
-                '$like':ctx.query.keyword
+            // res.send(200, cache);
+        }catch(err){
+            try{
+                // 首先通过threadsID获得主串信息
+                let threads = await ThreadsModel.findById(threadsId)
+                console.log(threads)
+                if (!threads) {
+                    return 
                 }
-            },
-            {content: {
-                '$like':ctx.query.keyword
-            }},
-            {uid: ctx.query.keyword}
-        ]
-    }
-    if(ctx.query.forum){
-        map['forum'] = ctx.query.forum
-    }
+                var forum = ForumModel.findForumById(threads.forum) || {}
+                let replyCount = await ThreadsModel.count({where:{parent: threadsId}})
+                var pageCount = Math.ceil(replyCount / 20)
+                pageCount = (!pageCount) ? 1 : pageCount
+                let replys = await ThreadsModel.getReply(threadsId, (pageIndex == 'last') ? pageCount : pageIndex)
+                var output = {
+                    threads: threads,
+                    replys: replys,
+                    forum: forum,
+                    page: {
+                        title: 'No.' + threads.id,
+                        size: pageCount,
+                        page: pageIndex
+                    },
+                    code: 200,
+                    success: true
+                }
+                if (forum) {
+                    forum['createdAt'] = (forum['createdAt']) ? new Date(forum['createdAt']).getTime() : null;
+                    forum['updatedAt'] = (forum['updatedAt']) ? new Date(forum['updatedAt']).getTime() : null;
+                }
+                if (threads) {
+                    delete threads['ip'];
+                    threads['createdAt'] = (threads['createdAt']) ? new Date(threads['createdAt']).getTime() : null;
+                    threads['updatedAt'] = (threads['updatedAt']) ? new Date(threads['updatedAt']).getTime() : null;
+                }
+                for (var i in replys) {
+                    if (replys[i]) {
+                        delete replys[i]['ip'];
+                        delete replys[i]['parent'];
+                        delete replys[i]['recentReply'];
+                        replys[i]['createdAt'] = (replys[i]['createdAt']) ? new Date(replys[i]['createdAt']).getTime() : null;
+                        replys[i]['updatedAt'] = (replys[i]['updatedAt']) ? new Date(replys[i]['updatedAt']).getTime() : null;
+                    }
+                }
+                return ctx.render('desktop/threads/index',output)
+            }
+            catch(err){
+                return ctx.body = {
+                    msg :'err'
+                }
+            }
+        }
+    },
+    //创建
+    create : async function (ctx,next) {
+        var body = ctx.request.body || {}
+        console.log('body',body)
+        body = JSON.stringify(body)
+        body = JSON.parse(body)
+        let data = body.fields || {}
+        console.log(data)
+        if (ctx.method != 'POST') {
+            return await next()
+        }
+        // Skipper临时解决方案
+        // if (req._fileparser.form.bytesExpected > 4194304) {
+        //     // return res.badRequest('文件大小不能超过4M (4,194,304 Byte)');
+        //     // 
+        // }
         
-    if (ctx.query.ip) {
-        map['ip'] =  ctx.query.ip
-    }
-
-    if (ctx.query.parent) {
-        map['parent'] = ctx.query.parent
-    }
-
-    if (ctx.query.lock) {
-        map['lock'] = true;
-    }
-
-    if (ctx.query.order) {
-        if (ctx.query.sort == 'desc') {
-            sort[ctx.query.order] = 'desc';
-        } else {
-            sort[ctx.query.order] = 'asc';
+        const file = ctx.request.body.files.image;
+        if( file.size && file.size > 4194304){
+            return
+            // return ctx.redirect('back')
         }
-    } else {
-        sort['id'] = 'desc';
-    }
-    console.log(map)
+        console.log('file',file)
+        const reader = fs.createReadStream(file.path);
+        const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
+        reader.pipe(stream)
+        //originalname 文件名称，path上传后文件的临时路径，mimetype文件类型
+        // const {originalname, path, mimetype,size} = ctx.req.file
+        try {
+           let uploadedFilesPath = await ThreadsModel.uploadAttachment(err,file)
+        }catch(err){
 
-    let threads = await ThreadsModel.findAndCount({
-        where: map,
-        offset: parseInt(pagesize)*(page-1),
-        limit: parseInt(pagesize)
-    })
-    threads = JSON.stringify(threads)
-    threads = JSON.parse(threads)
-
-    let count = threads.count
-    threads = threads.rows
-
-    if(ctx.query.parent){
-       let parentThreads = await ThreadsModel.findById(ctx.query.parent)
-       //console.log('parentThreads',parentThreads)
-       return ctx.render('content/threads/index',{
-        page: {
-            name: '贴子管理',
-            desc: '串',
-            count: count
-        },
-        parent: parentThreads,
-        data: threads,
-        selectList:selectList
-       })
-    }else{
-        return ctx.render('content/threads/index',{
-            page: {
-                name: '贴子管理',
-                desc: '全站通用式内容管理',
-                count: count
-            },
-            data: threads,
-            req:ctx.request,
-            selectList:selectList 
-        })
-    }
- }
-exports.create = async function (ctx,next) {
-    
-    var body = ctx.request.body || {}
-    body = JSON.stringify(body)
-    body = JSON.parse(body)
-    let data = body.fields || {}
-
-    let selectList = await ForumModel.findAll()
-    selectList = JSON.stringify(selectList)
-    selectList = JSON.parse(selectList)
-    selectList=selectList.map(item=>{
-        let select= {}
-        select.key = item.name
-        select.value = item.id
-        return select
-    })
-    //console.log(selectList)
-    var output = {
-        page: {
-            name: '创建贴子',
-            desc: '创建一个新帖'
-        },
-        data: data,
-        req: ctx.request,
-        selectList:selectList 
-     } 
-
-    if (ctx.method != 'POST') {
-        return ctx.render('content/threads/edit', output);
-    }
-
-    let parentThreads = await ThreadsModel.findAll({
-        where:{
-            parent:data.parent
         }
-    })
-    console.log(parentThreads)
-    //ip 
-    // data.ip = ctx.headers['x-forwarded-for'] ||
-    // ctx.connection.remoteAddress ||
-    // ctx.socket.remoteAddress ||
-    // ctx.connection.socket.remoteAddress ||'0.0.0.0'
-    data.ip=ctx.ip
-
-    data.content = data.content || ''
-    data.content = data.content
-        .replace(/<[^>]+>/gi, '')
-        .replace(/\r\n/g, "\n")
-        .replace(/\r/g, "\n")
-        .replace(/\n/g, "<br>")
-        .replace(/(\>\>No\.\d+)/g, "<font color=\"#789922\">$1</font>")
-        .replace(/(\>\>\d+)/g, "<font color=\"#789922\">$1</font>")
-
-    if (parentThreads && parentThreads.forum) {
-        data.forum = parentThreads.forum
-    }
-
-    var forum = await ForumModel.findById(data.forum)
-    forum = JSON.stringify(forum)
-    forum = JSON.parse(forum)
-
-    if (!forum) {
-        //req.flash('danger', '版块不存在');
-        return ctx.response.redirect('back');
-    }
-
-    if (forum.lock) {
-        //req.flash('danger', '版块已经被锁定');
-        return ctx.response.redirect('back');
-    }
-    let res = await ThreadsModel.create({
-        uid: data.uid || '',
-        name: data.name || '',
-        email: data.email || '',
-        title: data.title || '',
-        content: data.content || '',
-        image: data.image || '',
-        thumb: data.thumb || '',
-        lock: data.lock || false,
-        sage: data.sage || false,
-        ip: data.ip || '0.0.0.0',
-        forum: data.forum,
-        parent: data.parent || '0',
-    }).then(res=>{
-        console.log('success')
-        return true
-    }).catch(err=>{
-        console.log('error')
-        return false
-    })
-    if(res){
-        return ctx.response.redirect('back');
-    }else{
-        return ctx.response.redirect('back');
-    }
-}
-exports.update = async function (ctx,next) {
-   let threads =await ThreadsModel.findById(ctx.params.id)
-   threads = JSON.stringify(threads)
-   threads = JSON.parse(threads)
-   if(!threads) return
-
-   var body = ctx.request.body || {}
-   body = JSON.stringify(body)
-   body = JSON.parse(body)
-   let data = body.fields || threads || {}
-
-   let selectList = await ForumModel.findAll()
-   selectList = JSON.stringify(selectList)
-   selectList = JSON.parse(selectList)
-
-   selectList = selectList.map(item=>{
-       let select= {}
-       select.key = item.name
-       select.value = item.id
-       return select
-   })
-  
-   if(ctx.method !== 'POST'){
-        return ctx.render('content/threads/edit', {
-            page: {
-                name: '编辑串',
-                desc: '编辑一个串'
-            },
-            data: data,
-            req: ctx.request,
-            selectList:selectList
-        })
-    }
-    let parentThreads = await ThreadsModel.findAll({
-        where:{
-            id:data.parent
-        }
-    })
-    parentThreads = JSON.stringify(parentThreads)
-    parentThreads = JSON.parse(parentThreads)
-
-    data.ip=ctx.ip
-
-    data.content = data.content || ''
-    data.content = data.content
-        .replace(/<[^>]+>/gi, '')
-        .replace(/\r\n/g, "\n")
-        .replace(/\r/g, "\n")
-        .replace(/\n/g, "<br>")
-        .replace(/(\>\>No\.\d+)/g, "<font color=\"#789922\">$1</font>")
-        .replace(/(\>\>\d+)/g, "<font color=\"#789922\">$1</font>")
-
-    if (parentThreads && parentThreads.forum) {
-        data.forum = parentThreads.forum
-    }
-
-    var forum = await ForumModel.findById(data.forum)
-    forum = JSON.stringify(forum)
-    forum = JSON.parse(forum)
-    console.log('forum',forum)
-
-    if (!forum) {
-        //req.flash('danger', '版块不存在');
-        return ctx.response.redirect('back');
-    }
-
-    if (forum.lock) {
-        //req.flash('danger', '版块已经被锁定');
-        return ctx.response.redirect('back');
-    }
-    let res = await ThreadsModel.update({
-        uid: data.uid || '',
-        name: data.name || '',
-        email: data.email || '',
-        title: data.title || '',
-        content: data.content || '',
-        image: data.image || '',
-        thumb: data.thumb || '',
-        lock: data.lock || false,
-        sage: data.sage || false,
-        forum: data.forum
-    },{
-        where:{
-            id:threads.id
-        }
-    }).then(res=>{
-        console.log('success')
-        return true
-    }).catch(err=>{
-        console.log('error')
-        return false
-    })
-    if(res){
-        return ctx.response.redirect('/content/threads');
-    }else{
-        return ctx.response.redirect('back');
-    }
-}
-
-exports.remove = async function (ctx,next) {
-    var map = {};
-    
-    if(ctx.params.id){
-        map['id'] =  ctx.params.id
-    } else if(ctx.query.ids){
-        map['id'] = ctx.query.ids
-    } else if(ctx.query.ip) {
-        map['ip'] = ctx.query.ip
-    } else if(ctx.query.uid) {
-        map['uid'] = ctx.query.uid
-    } else {
-        return 
-    }
-    let result = await ThreadsModel.destroy({
-        where:{
-            id:map.id
-        }
-    })
-    if(result){
-        return ctx.response.redirect('/content/threads');
-    }else{
-        return ctx.response.redirect('back');
-    }
-}
-//配置
-exports.set = async function (ctx,next) {
-
-    var map = {}
-    map[ctx.query.key] = ctx.query.value
-
-   let result = await ForumModel.update(map,{
-        where:{
-            id:ctx.params.id
-        }
-    })
-    if(result){
-        return ctx.response.redirect('/content/threads');
-    }else{
-        return ctx.response.redirect('back');
-    }
-}
-exports.removeImages = async function (ctx,next) {
-    var map = {};
-    map['image'] = ''
-    map['thumb'] = ''
-
-    let result = await ForumModel.update(map,{
-        where:{
-            id:ctx.params.id
-        }
-    })
-    if(result){
-        return ctx.response.redirect('/content/threads');
-    }else{
-        return ctx.response.redirect('back');
     }
 }

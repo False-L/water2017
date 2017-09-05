@@ -11,10 +11,10 @@ const utility = require('../services/utility.js')
 module.exports = {
 
     index: async function (ctx,next) {
-        // console.log(ctx.params.forum)
+         console.log('forum',ctx.params.forum)
         // 版块
-        var forum = await ForumModel.findForumByName(ctx.params.forum)
-        console.log(forum)
+        var forum =  ForumModel.findForumByName(ctx.params.forum)
+        console.log('forum')
 
         if (!forum) {
             return 
@@ -28,18 +28,19 @@ module.exports = {
         ctx.cacheKey = 'forum:' + forum.id + ':' + pageIndex + ':' + ctx.request.wantType.suffix
         try{
             let cache = await CacheService.get(req.cacheKey)
-            if (wantType.param == 'json') {
-                return sails.config.jsonp ? ctx.jsonp(JSON.parse(cache)) : ctx.json(JSON.parse(cache))
+            if (ctx.wantType.param == 'json') {
+                // return sails.config.jsonp ? ctx.jsonp(JSON.parse(cache)) : ctx.json(JSON.parse(cache))
             } else if (ctx.wantType.param == 'xml') {
-                ctx.set('Content-Type', 'text/xml');
+                // ctx.set('Content-Type', 'text/xml');
             }
-            ctx.send(200, cache);
+            // ctx.send(200, cache);
         }
         catch(err){
             try{
                 var data = await ThreadsModel.list(forum.id, pageIndex)
-                console.log(data)
+                console.log('data',data)
                 var output = {
+                    utility: utility,
                     forum: forum,
                     data: data,
                     page: {

@@ -67,14 +67,14 @@ ForumModel.initialize = function () {
           if (handledForum[handledForumId[threadsCount.forum]])
               handledForum[handledForumId[threadsCount.forum]]['topicCount'] = threadsCount.count;
         }
-        sequelize.models.forum.list = handledForum;
-        sequelize.models.forum.idList = handledForumId;
-        sequelize.models.forum.selectList = forumSelectList;
+        sequelize.models.forum.list = handledForum
+        sequelize.models.forum.idList = handledForumId
+        sequelize.models.forum.selectList = forumSelectList
         // console.log('handledForum',handledForum)
-        resolve(handledForum);
+        resolve(handledForum)
       }).catch(err=>{
         // console.log(err)
-        reject(err);
+        reject(err)
       })
     }).catch(err=>{
       // console.log(err)

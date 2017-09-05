@@ -11,7 +11,7 @@ block content
         hr
         //- 回应框
         div#h-post-form.uk-container-center.uk-width-small-8-10.uk-width-medium-4-10.uk-width-large-4-10
-            form(action='/'+encodeURI(forum.name)+'/create', method='post', enctype='multipart/form-data')
+            form(action='/f/'+encodeURI(forum.name)+'/create', method='post', enctype='multipart/form-data')
                 div.uk-grid.uk-grid-small.h-post-form-grid
                     div.uk-width-1-5
                         div.h-post-form-title 名 称
@@ -64,7 +64,7 @@ block content
                                 a.h-threads-info-email(href='mailto:'+item.email)= (item.name) ? item.name : '无名氏'
                             else
                                 span.h-threads-info-email= (item.name) ? item.name : '无名氏'
-                            span.h-threads-info-createdat=sails.services.utility.unix_to_datetime(item.createdAt)
+                            span.h-threads-info-createdat= utility.unix_to_datetime(item.createdAt)
                             span.h-threads-info-uid!='ID:'+item.uid
                             span.h-threads-info-report-btn
                                 | [

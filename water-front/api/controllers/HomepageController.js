@@ -131,9 +131,9 @@ module.exports = {
             success: false
         }
     
-        if (ctx.request.signedCookies.managerId) {
-            result.success= true;
-        }
+        // if (ctx.request.signedCookies.managerId) {
+        //     result.success= true;
+        // }
         return  ctx.body = {result}
     },
     /**
