@@ -13,6 +13,7 @@ var gm = require('gm')
 
 const ForumModel = require('../models/Forum.js')
 const ThreadsModel = require('../models/Threads.js')
+const FilterModel = require('../models/Filter.js')
 const utility = require('../services/utility.js')
 const CacheService = require('../services/Cache.js')
 
@@ -102,27 +103,138 @@ module.exports = {
         if (ctx.method != 'POST') {
             return await next()
         }
-        // Skipper临时解决方案
-        // if (req._fileparser.form.bytesExpected > 4194304) {
-        //     // return res.badRequest('文件大小不能超过4M (4,194,304 Byte)');
-        //     // 
-        // }
-        
-        const file = ctx.request.body.files.image;
+
+        const file = ctx.request.body.files.image
         if( file.size && file.size > 4194304){
             return
             // return ctx.redirect('back')
         }
-        console.log('file',file)
-        const reader = fs.createReadStream(file.path);
-        const stream = fs.createWriteStream(path.join(os.tmpdir(), Math.random().toString()));
-        reader.pipe(stream)
-        //originalname 文件名称，path上传后文件的临时路径，mimetype文件类型
-        // const {originalname, path, mimetype,size} = ctx.req.file
-        try {
-           let uploadedFilesPath = await ThreadsModel.uploadAttachment(err,file)
-        }catch(err){
+        // console.log('file',file)
 
+        try {
+            let uploadedFilesPath = await ThreadsModel.uploadAttachment(file)
+
+            console.log('uploadedFilesPath',uploadedFilesPath)
+            if (uploadedFilesPath && uploadedFilesPath.image) {
+                data.image = uploadedFilesPath.image
+                data.thumb = uploadedFilesPath.image
+            }
+            console.log('tid',ctx.params.tid)
+           let parentThreads = await ThreadsModel.checkParentThreads(ctx.params.tid)
+            
+            // ip
+            // data.ip = ctx.request.headers['x-forwarded-for'] ||
+            // ctx.request.connection.remoteAddress ||
+            // ctx.request.socket.remoteAddress ||
+            // ctx.request.connection.socket.remoteAddress ||
+            // '0.0.0.0';
+            data.ip = ctx.ip || '0.0.0.0'
+
+            // 饼干
+            data.uid = ctx.request.signedCookies.userId
+
+            // 管理员回复
+            if (data.isManager == 'true' && ctx.request.signedCookies.managerId) {
+                data.color = (data.color) ? data.color : 'red';
+                data.uid = '<font color="' + data.color + '">' + ctx.request.signedCookies.managerId + '</font>';
+            }
+
+            if (data.image && !data.content) {
+                data.content = '无正文';
+            } else if (!data.image && (!data.content || data.content.toString().trim().length < 1)) {
+                // return res.badRequest('正文至少1个字');
+                return
+            }
+
+            if (FilterModel.test.word(data.content) || sails.models.filter.test.word(data.name) || sails.models.filter.test.word(data.title)) {
+                // return res.badRequest('正文至少1个字');
+                return 
+            }
+
+            data.content = data.content
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/ /g, "&nbsp;")
+                .replace(/\'/g, "&#39;")
+                .replace(/\"/g, "&quot;")
+                .replace(/\r\n/g, "\n")
+                .replace(/\r/g, "\n")
+                .replace(/\n/g, "<br>")
+                .replace(/&gt;&gt;No\.(\d+)/g, "<font color=\"#789922\">>>No.$1</font>")
+                .replace(/&gt;&gt;(\d+)/g, "<font color=\"#789922\">>>$1</font>")
+                .replace(/&gt;(.*?)\<br\>/g, "<font color=\"#789922\">&gt;$1</font><br>");
+        
+            if (parentThreads && parentThreads.forum) {
+                var forum = ForumModel.findForumById(parentThreads.forum)
+            } else if (ctx.params.forum) {
+                var forum = ForumModel.findForumByName(req.params.forum)
+            } else {
+                var forum = null
+            }
+
+            if (typeof data.email == 'string' && data.email.toLowerCase() == 'sage') {
+                data.sage = true;
+            }
+
+            if (parentThreads && parentThreads.id) {
+                data.parent = parentThreads.id
+            }
+
+            if (!forum) {
+                return res.badRequest('版块不存在');
+            }
+
+            if (forum.lock) {
+                return res.badRequest('版块已经被锁定');
+            }
+
+            if (ctx.session.lastPostAt && (new Date().getTime() - ctx.session.lastPostAt < forum.cooldown * 1000)) {
+                if (!ctx.session.managerId) {
+                    return res.badRequest('技能冷却中');
+                }
+            }
+            let newThreads
+            try{
+                newThreads = await ThreadsModel
+                .create({
+                    uid: data.uid || '',
+                    name: data.name || '',
+                    email: data.email || '',
+                    title: data.title || '',
+                    content: data.content || '',
+                    image: data.image || '',
+                    thumb: data.thumb || '',
+                    lock: false,
+                    sage: data.sage || false,
+                    ip: data.ip || '0.0.0.0',
+                    forum: forum.id,
+                    parent: data.parent || '0',
+                    updatedAt: new Date()
+                })
+            }catch(err){
+                return ctx.body={
+                    msg:'err'
+                }
+            }
+            try{
+                // 对父串进行处理
+                await ThreadsModel.handleParentThreads(parentThreads, newThreads)
+                // session CD时间更新
+                ctx.session.lastPostAt = new Date().getTime()
+                ctx.session.lastPostThreadsId = newThreads.id
+                return ctx.body={
+                    }
+            }catch(err){
+                // 事务回滚 删除之前创建的内容
+                await ThreadsModel.destroy({id: newThreads.id})
+                return res.serverError(err);
+            }
+        }catch(err){
+            console.log('err2222222',err)
+            return ctx.body={
+                msg:err
+            }
         }
     }
 }

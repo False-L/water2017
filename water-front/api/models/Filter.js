@@ -57,9 +57,9 @@ FilterModel.exportToGlobal =  function(){
 /**
  *  检查是否被过滤
  */
-FilterModel.test = {
+FilterModel.prototype.test = {
     ip: function (data) {
-        var ruleList = sails.models.filter.rulesList.ip;
+        var ruleList = FilterModel.rulesList.ip;
         if(!data){
             return false;
         }
@@ -77,7 +77,7 @@ FilterModel.test = {
         return false
     },
     userId: function (data) {
-        var ruleList = sails.models.filter.rulesList.userId;
+        var ruleList = FilterModel.rulesList.userId;
         if(!data){
             return false
         }
@@ -94,7 +94,7 @@ FilterModel.test = {
         return false
     },
     word: function (data) {
-        var ruleList = sequelize.models.filter.rulesList.word;
+        var ruleList = FilterModel.rulesList.word;
         if(!data){
             return false
         }
@@ -113,9 +113,9 @@ FilterModel.test = {
     location: function (data) {
         return false
     },
-    imagemd5: function(data){
+    imagemd5 : function(data){
         
-        var ruleList = sequelize.models.filter.rulesList.imagemd5;
+        var ruleList = FilterModel.rulesList.imagemd5
         
         if(!data){
             return false

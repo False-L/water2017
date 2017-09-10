@@ -9,6 +9,8 @@ module.exports =  function bootstrap () {
     // 将常用依赖导入全局
     global._ = require('lodash')
     global.Promise = require('bluebird')
+    global.md5 = require('md5')
+    
     // console.log('bootstrap')
     global.H = {
         settings:{

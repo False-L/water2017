@@ -1,15 +1,16 @@
 const Koa = require('koa')
 const app = new Koa()
+const session = require('koa-session')
 const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaBody = require('koa-body')
-
+const RedisStore = require('./middleware/redisStore.js')
 const logUtil = require('./utils/log_util.js')
 const bootstrap = require('./config/bootstrap.js')
-
+const userAuth = require('./api/policies/userAuth.js')
 const index = require('./api/routes/index')
 // const users = require('./api/routes/users')
 // const content = require('./api/routes/content')
@@ -21,8 +22,28 @@ onerror(app)
 //全局参数导入
 bootstrap()
 
-
+var store = RedisStore({
+  host: '127.0.0.1',
+  port: 6379,
+  database: 7
+})
 // middlewares
+app.keys = ['d38f989e2dbd315793cb2675d29099a8']
+const CONFIG = {
+  key: 'signedCookies', /** (string) cookie key (default is koa:sess) */
+  /** (number || 'session') maxAge in ms (default is 1 days) */
+  /** 'session' will result in a cookie that expires when session/browser is closed */
+  /** Warning: If a session cookie is stolen, this cookie will never expire */
+  maxAge: 86400000,
+  overwrite: true, /** (boolean) can overwrite or not (default true) */
+  httpOnly: true, /** (boolean) httpOnly or not (default true) */
+  signed: true, /** (boolean) signed or not (default true) */
+  rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. default is false **/
+  store:store
+}
+
+app.use(session(CONFIG,app))
+
 
 app.use(koaBody(),{multipart:true})
 
@@ -59,13 +80,11 @@ app.use(async (ctx, next) => {
 })
 
 // app.use(bootstrap)
-
+app.use(userAuth)
 // console.log('H')
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-// app.use(users.routes(), users.allowedMethods())
-// app.use(content.routes(), content.allowedMethods())
-// app.use(system.routes(),system.allowedMethods())
+
 
 module.exports = app

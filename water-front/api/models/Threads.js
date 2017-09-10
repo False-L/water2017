@@ -124,107 +124,79 @@ ThreadsModel.getReply = function (threadsId, page){
     })
    
 }
-ThreadsModel.uploadAttachment = function (uploadError, uploadedFiles) {
-    return new Promise(function(resolve,reject){
-        if (uploadError) {
-            reject(uploadError)
-            return 
-        }
+ThreadsModel.uploadAttachment = function (uploadedFile) {
+    var promise = new Promise(function(resolve,reject){
+
         // 0. 如果没有上传文件则直接pass
-        if (!uploadedFiles || uploadedFiles.length == 0) {
-            resolve({image: '', thumb: ''});
-            return 
+        if (!uploadedFile || uploadedFile.length == 0) {
+            console.log('111111')
+            return resolve ({image: '', thumb: ''});
         }
+        console.log('222222')
         if (H.settings.allowUpload && H.settings.allowUpload == 'false'){
-            reject('系统暂时禁止了上传图片，请取消附件再重新发串。');
-            return 
+            console.log('333333')
+            return reject('系统暂时禁止了上传图片，请取消附件再重新发串。')
         }
         
-        fs.readFileAsync(uploadedFiles.path,"utf8").then(uploadedFile=>{
-
-            // 0. 就绪,删除原文件
-            fs.unlink(uploadedFile.path)
-            // 1. 初次检查文件类型是否合法
-            if (!/^.*?\.(jpg|jpeg|bmp|gif|png)$/g.test(uploadedFiles.name.toLowerCase())) {
-                reject('只能上传 jpg|jpeg|bmp|gif|png 类型的文件')
-                return this
-            }
-            if (readFileError) {
-                reject(readFileError);
-                return this
-            }
-            var imagemd5 = md5(uploadedFileBuffer)
-            
-            // 2. 检查是否被屏蔽
-            if (FilterModel.test.imagemd5(imagemd5)) {
-                reject('没有权限');
-                return 
-            }
-            // 3. 准备好路径
-            var now = new Date();
-            var imageName = path.basename(uploadedFile.name.toLowerCase());
-            var remoteImagePath = '/image/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
-            var remoteThumbPath = '/thumb/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
-            
-            var uploadedFileGm = gm(uploadedFileBuffer, imageName)
-                .autoOrient()
-                .noProfile()
-
-            uploadedFileGm.size(function (readFileSizeError, uploadedFileSize) {
-
-                if (readFileSizeError) {
-                    reject(readFileSizeError);
-                    return 
+        fs.readFileAsync(uploadedFile.path,"utf-8")
+            .then(uploadedFileBuffer=>{
+                console.log('fs.readFileAsync')
+                 // 0. 就绪,删除原文件
+                 fs.unlink(uploadedFile.path)
+                // 1. 初次检查文件类型是否合法
+                console.log('uploadedFile.name',uploadedFile.name)
+                if (!/^.*?\.(jpg|jpeg|bmp|gif|png)$/g.test(uploadedFile.name.toLowerCase())) {
+                    return reject('只能上传 jpg|jpeg|bmp|gif|png 类型的文件')
                 }
+                var imagemd5 = md5(uploadedFileBuffer)
+                // 2. 检查是否被屏蔽
+                if (FilterModel.test && FilterModel.test.imagemd5(imagemd5)) {
+                    return reject('没有权限')
+                }
+                
+                // 3. 准备好路径
+                var now = new Date()
+                var imageName = uploadedFile.name.toLowerCase()
+                var remoteImagePath = '/Users/web/Desktop/image/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
+                // var remoteThumbPath = '/Users/web/Desktop/thumb/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
+                    console.log('remoteImagePath',remoteImagePath)
+
+                // var uploadedFileGm = gm(uploadedFileBuffer, imageName)
+                //     .autoOrient()
+                //     .noProfile();
+
                 // 4. 已经确认是图片，上传原图到FTP
                 FtpServices.ready()
-                    .then(function (ftpClient) {
-                        // 尝试创建文件夹
+                    .then(function(ftpClient){
                         ftpClient.mkdir(path.dirname(remoteImagePath), true)
                             .then(res=>{
                                 ftpClient.put(uploadedFileBuffer, remoteImagePath)
-                                    .then(res=>{
-                                        // 5. resize图片
-                                        if (uploadedFileSize.width > 250 || uploadedFileSize.height > 250) {
-                                            uploadedFileGm = uploadedFileGm.resize(250, 250);
-                                        }
-                                        uploadedFileGm.toBuffer(function (thumbToBufferError, thumbBuffer) {
-                                            if (thumbToBufferError) {
-                                                ftpClient.end()
-                                                reject(thumbToBufferError)
-                                                return 
-                                            }
-                                            // 6.流程结束 上传到ftp后返回
-                                            ftpClient.mkdir(path.dirname(remoteThumbPath), true).catch(err=>{
-                                                ftpClient.put(thumbBuffer, remoteThumbPath)
-                                                    .then(res=>{
-                                                        ftpClient.end()
-                                                        resolve({image: remoteImagePath, thumb: remoteThumbPath})
-                                                    }).catch(uploadThumbError=>{ 
-                                                        reject(uploadThumbError)
-                                                    })
-                                            })
+                                    .then(res=>{                                                                                               
+                                            console.log('流程结束')
+                                            ftpClient.end()
+                                            return resolve({image: remoteImagePath, thumb: ''})                        
                                         })
-                                    }).catch(uploadImageError=>{
+                                    })
+                                    .catch(uploadImageError=>{
                                         ftpClient.end()
                                         reject(uploadImageError)
-                                        return 
                                     })
                             })
-                    })
-                    .catch(err=>{
-                        reject(uploadImageError)
-                        return 
-                    })
+                            .catch(function (uploadImageError) {
+                                reject(uploadImageError)
+                            })
             })
-        })
+            .catch(readFileError=>{
+                console.log('readFileError',readFileError)
+                reject(readFileError)
+            })
     })
+    return promise
 }
 ThreadsModel.checkParentThreads = function (parent) {
     var promise = new Promise(function(resolve,reject){
         if (!parent || parent == 0) {
-            resolve(null)
-            return 
+            return resolve(null)
         }
         ThreadsModel.findOne({
             where:{id:parent}
@@ -232,18 +204,16 @@ ThreadsModel.checkParentThreads = function (parent) {
         .then(function (parentThreads) {
             
             if (!parentThreads) {
-                reject('回复的对象不存在')
-                return 
+                return reject('回复的对象不存在')
             }
             
             if (parentThreads.lock) {
-                reject('主串已经被锁定')
-                return 
+                return reject('主串已经被锁定')
             }  
-            resolve(parentThreads)
+            return resolve(parentThreads)
         })
         .catch(function (err) {
-            reject(err)
+            return reject(err)
         })
     })
     return promise
@@ -253,7 +223,7 @@ ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
     var promise = new Promise(function(resolve,reject){
         if (!parentThreads) {
             resolve(null);
-            return 
+            return this
         }
         var recentReply = parentThreads.recentReply
         if (!_.isArray(recentReply)) {
@@ -286,7 +256,5 @@ ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
     })
     return promise
 }
-
-
 
 module.exports = ThreadsModel
