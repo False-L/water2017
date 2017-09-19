@@ -1,0 +1,26 @@
+include  ./global
+
+
+//- - if H.settings.siteCdnPath
+//- -     - var cdnPath = H.settings.siteCdnPath
+
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1")
+        title= ((page) ? page.name + ' - '+page.desc : '' )
+        //- + H.settings.siteName
+        //- link(href='/public/stylesheets/bootstrap.min.css' type='text/css' rel='stylesheet')
+        +css('/stylesheets/bootstrap.min.css')
+        +css('/stylesheets/fm-dashborad.css')
+        +js('/javascripts/jquery.min.js')
+        +js('/javascripts/bootstrap.min.js')
+    body
+        include ./nav
+        div.bs-docs-header
+            +container(true)
+                h1= ((page) ? page.name : '无标题' )
+                p= ((page) ? page.desc : '' )
+        +container(true)
+            block body
