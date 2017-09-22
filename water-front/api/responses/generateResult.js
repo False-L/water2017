@@ -12,25 +12,23 @@
  *                  cacheKey: {string}
  *              }
  */
+const utility = require('../services/utility.js')
+const Cache = require('../services/Cache.js')
 
-var generateResult = async function (ctx,next) {
-        await next();
-        // Get access to `req`, `res`, & `sails`
-        var req = ctx.request
-        var res = ctx.response
-        // var sails = req._sails;
+module.exports =  async function generateResult(data, option) {
     
+        var  ctx = this;
         // sails.log.silly('res.ok() :: Sending 200 ("OK") response');
-    
+        console.log('res.ok() :: Sending 200 ("OK") response');
         // Set status code
-        res.status(200)
+        ctx.status = 200;
     
         if(!option || !_.isObject(option)){
-            return res.serverError('结果生成初始化失败:预期外参数');
+            return ctx.serverError('结果生成初始化失败:预期外参数');
         }
     
-        switch (req.wantType.param) {
-    
+        switch ('desktop') {
+            // ctx.wantType.param
     //        case 'xml':
     //            var html = json2xml(data);
     //            html = '<?xml version="1.0" encoding="UTF-8"?><root>' + html + '</root>';
@@ -39,30 +37,26 @@ var generateResult = async function (ctx,next) {
     //            res.send(200, html);
     //            break;
     
-            case 'json':
-                sails.services.cache.set(req.cacheKey, data);
-                sails.config.jsonp ? res.jsonp(data) : res.json(data);
-                break;
+            // case 'json':
+            //     sails.services.cache.set(req.cacheKey, data);
+            //     sails.config.jsonp ? res.jsonp(data) : res.json(data);
+            //     break;
     
-            case 'mobile':
-                res.render(option.mobileView, data, function (err, html) {
-                    if (err) {
-                        return res.serverError(err);
-                    }
-                    sails.services.cache.set(req.cacheKey, html);
-                    res.send(200, html);
-                });
-                break;
+            // case 'mobile':
+            //     res.render(option.mobileView, data, function (err, html) {
+            //         if (err) {
+            //             return res.serverError(err);
+            //         }
+            //         sails.services.cache.set(req.cacheKey, html);
+            //         res.send(200, html);
+            //     });
+            //     break;
     
             case 'desktop':
             default :
-                res.render(option.desktopView, data, function (err, html) {
-                    if (err) {
-                        return res.serverError(err);
-                    }
-                    sails.services.cache.set(req.cacheKey, html);
-                    res.send(200, html);
-                });
+                // Cache.set(ctx.cacheKey, html);
+                await ctx.render(option.desktopView, data);
+                // console.log(ctx.body)
                 break;
         }
     

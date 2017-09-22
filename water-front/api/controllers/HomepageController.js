@@ -27,8 +27,8 @@ module.exports = {
     
     index :async function (ctx,next) {
 
-        ctx.request.wantType = utility.checkWantType(ctx.params.format)
-        ctx.request.cacheKey ='homepage:index:' + ctx.request.wantType.suffix
+        ctx.wantType = utility.checkWantType(ctx.params.format)
+        ctx.cacheKey ='homepage:index:' + ctx.wantType.suffix
 
         // // 0.1 确认是否需要跳转
 

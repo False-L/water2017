@@ -40,7 +40,16 @@ sequelize.define('threads',{
     },
     forum: Sequelize.STRING,
     parent: Sequelize.STRING,
-    //updatedAt: new Date()
+    replyCount:{
+        type:Sequelize.BIGINT,
+        defaultValue:0
+    },
+    // recentReply:{
+    //     references: {
+    //         model:'recentReply',
+    //         key: 'uid'
+    //     }
+    // }
 },{      
     freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步      
     tableName: 'threads',       
@@ -62,8 +71,10 @@ ThreadsModel.list = function (forumId, page) {
        offset:(page-1)*20,
        limit:20
    }).then(res=>{
+    //    console.log(res)
        res = JSON.stringify(res)
        res = JSON.parse(res)
+       console.log(res)
        return res
    })
    .then(threads=>{
@@ -91,9 +102,9 @@ ThreadsModel.list = function (forumId, page) {
                     for (var i in replys) {
                         result.replys['t' + replys[i].id] = replys[i];
                     }
-                    resolve(result)
+                    return resolve(result)
                 }).catch(err=>{
-                    reject(err)
+                  return  reject(err)
                 })
         } else {
             resolve(result)            
@@ -107,58 +118,59 @@ ThreadsModel.list = function (forumId, page) {
  * @param {int} page=1 页数
  */
 ThreadsModel.getReply = function (threadsId, page){
-    return new Promise(function(resolve,reject){
          // 页数
         page = Math.ceil(page)
 
-        ThreadsModel.findAll({
-            where:{parent:threadsId},
-            order:[['updatedAt ASC']],
-            offset:(page-1)*20,
-            limit:20
-        }).then(res=>{
-            res = JSON.stringify(res)
-            res = JSON.parse(res)
-            return res
-        })
-        .then(threads=>{
-            resolve(threads)
-        }).catch(err=>{
-            reject(err)
-        })
+        var promise = new Promise(function(resolve,reject){
+            ThreadsModel.findAll({
+                where:{parent:threadsId},
+                order:[['updatedAt','ASC']],
+                offset:(page-1)*20,
+                limit:20
+            }).then(res=>{
+                res = JSON.stringify(res);
+                res = JSON.parse(res);
+                return res
+            })
+            .then(threads=>{
+                console.log(threads)
+               return resolve(threads);
+            }).catch(err=>{
+                return reject(err);
+            })
     })
-   
+   return promise
 }
 ThreadsModel.uploadAttachment = function (uploadedFile) {
 
         // 0. 如果没有上传文件则直接pass
         if (!uploadedFile || uploadedFile.length == 0) {
-            console.log('111111')
+            
             return Promise.resolve ({image: '', thumb: ''});
         }
-        console.log('222222')
+        
         if (H.settings.allowUpload && H.settings.allowUpload == 'false'){
-            console.log('333333')
+            
             return Promise.reject('系统暂时禁止了上传图片，请取消附件再重新发串。')
         }
-        
-        fs.readFileAsync(uploadedFile.path,"utf-8")
-            .then(uploadedFileBuffer=>{
-                // console.log('fs.readFileAsync')
-                 // 0. 就绪,删除原文件
-                 fs.unlink(uploadedFile.path)
-                // 1. 初次检查文件类型是否合法
-                // console.log('uploadedFile.name',uploadedFile.name)
-                if (!/^.*?\.(jpg|jpeg|bmp|gif|png)$/g.test(uploadedFile.name.toLowerCase())) {
-                    return Promise.reject('只能上传 jpg|jpeg|bmp|gif|png 类型的文件')
-                }
-                var imagemd5 = md5(uploadedFileBuffer)
-                // 2. 检查是否被屏蔽
-                
-                if (FilterModel.test && FilterModel.test.imagemd5(imagemd5)) {
-                    // console.log("imagemd5",FilterModel.test.imagemd5(imagemd5))
-                    return Promise.reject('没有权限')
-                }
+        var promise = new Promise(function(resolve,reject){
+            fs.readFileAsync(uploadedFile.path,"utf-8")
+                .then(uploadedFileBuffer=>{
+                    // 0. 就绪,删除原文件
+                    fs.unlink(uploadedFile.path)
+                    // 1. 初次检查文件类型是否合法
+                    // console.log('uploadedFile.name',uploadedFile.name)
+                    if (!/^.*?\.(jpg|jpeg|bmp|gif|png)$/g.test(uploadedFile.name.toLowerCase())) {
+                        return reject('只能上传 jpg|jpeg|bmp|gif|png 类型的文件')
+                    }
+                    // var imagemd5 = md5(uploadedFileBuffer)
+                    var imagemd5 = uploadedFileBuffer
+                    // 2. 检查是否被屏蔽
+                    
+                    if (FilterModel.test && FilterModel.test.imagemd5(imagemd5)) {
+                        // console.log("imagemd5",FilterModel.test.imagemd5(imagemd5))
+                        return reject('没有权限')
+                    }
                 
                 // 3. 准备好路径
                 var now = new Date()
@@ -174,59 +186,70 @@ ThreadsModel.uploadAttachment = function (uploadedFile) {
                 // 4. 已经确认是图片，上传原图到FTP
                 FtpServices.ready()
                     .then(function(ftpClient){
-                        //// 6.流程结束 上传到ftp后返回
+                        // 6.流程结束 上传到ftp后返回
                         ftpClient.mkdir(path.dirname(remoteImagePath), true)
                             .then(res=>{
-                                ftpClient.put(uploadedFileBuffer, remoteImagePath)
+                                    ftpClient.put(uploadedFileBuffer, remoteImagePath)
                                     .then(res=>{                                                                                               
                                             console.log('流程结束')
                                             ftpClient.end()
-                                            return Promise.resolve({image: remoteImagePath, thumb: ''})                        
+                                            return resolve({image: remoteImagePath, thumb: ''})                        
                                         })
-                                    })
-                                    .catch(uploadImageError=>{
+                                })
+                                .catch(uploadImageError=>{
                                         ftpClient.end()
-                                       return Promise.reject(uploadImageError)
-                                    })
+                                       return reject(uploadImageError)
+                                })
                             })
                             .catch(function (uploadImageError) {
-                                return Promise.reject(uploadImageError)
+                                return reject(uploadImageError)
                             })
             })
             .catch(readFileError=>{
                 console.log('readFileError',readFileError)
-                return Promise.reject(readFileError)
+                return reject(readFileError)
             })
+        })
+        return promise     
 }
 ThreadsModel.checkParentThreads = function (parent) {
     
-        if (!parent || parent == 0) {
+    if (!parent || parent == 0) {
             return Promise.resolve(null)
-        }
+    }
+    var promise = new Promise(function(resolve,reject){
+
         ThreadsModel.findOne({
             where:{id:parent}
         })
+        .then(res=>{
+            res = JSON.stringify(res);
+            res = JSON.parse(res);
+            return res
+        })
         .then(function (parentThreads) {
-            
+            console.log("parentThreads=====",parentThreads)
             if (!parentThreads) {
-                return Promise.reject('回复的对象不存在')
+                return reject('回复的对象不存在')
             }
             
             if (parentThreads.lock) {
-                return Promise.reject('主串已经被锁定')
+                return reject('主串已经被锁定')
             }  
-            return Promise.resolve(parentThreads)
+            return resolve(parentThreads)
         })
         .catch(function (err) {
-            return Promise.reject(err)
+            reject(err)
         })
+    })
+    return promise
 }
 
 ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
         if (!parentThreads) {
             return Promise.resolve(null);
-           
         }
+        // console.log("parentThreads",parentThreads)
         var recentReply = parentThreads.recentReply
         if (!_.isArray(recentReply)) {
             recentReply = []
@@ -235,7 +258,7 @@ ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
             recentReply.pop()
         }
         recentReply.unshift(newThreads.id)
-
+        console.log("recentReply",recentReply)
         var map = {}
         map['recentReply'] = recentReply
         map['replyCount'] = Number(Number(parentThreads['replyCount']) + 1)
@@ -245,16 +268,19 @@ ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
         } else {
             map['updatedAt'] = new Date()
         }
-
-        ThreadsModel.update({
-            where:map
-        },{
-            id: parentThreads.id
-        }).then(function () {
-            Promise.resolve(null)
-        }).catch(function (err) {
-            Promise.reject(err)
-        })
+        console.log("map==================",map)
+        var promise = new Promise(function(resolve,reject){
+            ThreadsModel.update({
+                map
+            },{
+               where:{ id: parentThreads.id}
+            }).then(function () {
+                resolve(null)
+            }).catch(function (err) {
+               reject(err)
+            })
+         })
+        return promise
 }
 
 module.exports = ThreadsModel

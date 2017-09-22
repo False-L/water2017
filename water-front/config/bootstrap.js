@@ -4,13 +4,14 @@ const SettingModel = require('../api/models/Setting.js')
 const development = require('../config/env/development.js')
 const ForumModel = require('../api/models/Forum.js')
 const FilterModel = require('../api/models/Filter.js')
+
 module.exports =  function bootstrap () {
     
     // 将常用依赖导入全局
     global._ = require('lodash')
     global.Promise = require('bluebird')
     global.md5 = require('md5')
-    
+    global.untility= require('../api/services/utility.js')
     // console.log('bootstrap')
     global.H = {
         settings:{
@@ -30,8 +31,6 @@ module.exports =  function bootstrap () {
             console.log("同步失败");
         })
     })
-
-
 }
 // 同步配置
 function syncSetting() {

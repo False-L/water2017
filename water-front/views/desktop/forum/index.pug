@@ -124,7 +124,7 @@ block content
                                             div.h-threads-content!=reply.content
                 hr
         //- 翻页
-        +page(page.page,page.size,'/'+forum.name,false)
+        +page(page.page,page.size,'/f/'+forum.name,false)
         div.uk-float-right
             small: a(href='/func/removeLastPostThreads') 删除最后一次发的串
             br

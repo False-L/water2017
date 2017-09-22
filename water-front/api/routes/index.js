@@ -21,7 +21,12 @@ const upload = multer({ storage: storage })
 var HomepageController = require('../controllers/HomepageController.js')
 var ForumController = require('../controllers/ForumController.js')
 var ThreadsController = require('../controllers/ThreadsController.js')
+const siteStatus = require('../policies/siteStatus.js')
+router.use(siteStatus)
 
+/**
+ * 首页
+ */
 router.get('/', HomepageController.index)
 router.get('/:format?', HomepageController.index)
 router.get('/homepage/menu/:format?',HomepageController.menu)
@@ -30,8 +35,19 @@ router.get('/homepage/isManager',HomepageController.isManager)
 // router.get('/search/:format?',HomepageController.search)
 // router.get('/homepage/switchType',HomepageController.switchType)
 
+/** 
+ * 串
+ */
+router.get('/t/:tid/:format?',ThreadsController.index)
+router.post('/t/:tid/create/:format?',koaBody,ThreadsController.create)
+
+/**
+ * 版块
+ */
 router.get('/f/:forum',ForumController.index)
 router.post('/f/:forum/create',koaBody,ThreadsController.create)
-
+/**
+ * 功能
+ */
 
 module.exports = router

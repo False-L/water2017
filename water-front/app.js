@@ -7,27 +7,25 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaBody = require('koa-body')
-const RedisStore = require('./middleware/redisStore.js')
+// const RedisStore = require('./middleware/redisStore.js')
 const Store = require('./middleware/store.js')
 const logUtil = require('./utils/log_util.js')
 const bootstrap = require('./config/bootstrap.js')
 const userAuth = require('./api/policies/userAuth.js')
-const index = require('./api/routes/index')
-// const users = require('./api/routes/users')
-// const content = require('./api/routes/content')
-// const system = require('./api/routes/system')
 
+const index = require('./api/routes/index')
+const responses = require('./middleware/responses.js')
 // error handler
 onerror(app)
 
 //全局参数导入
 bootstrap()
 
-var store = RedisStore({
-  host: '127.0.0.1',
-  port: 6379,
-  database: 7
-})
+// var store = RedisStore({
+//   host: '127.0.0.1',
+//   port: 6379,
+//   database: 7
+// })
 // middlewares
 app.keys = ['d38f989e2dbd315793cb2675d29099a8']
 const CONFIG = {
@@ -79,14 +77,15 @@ app.use(async (ctx, next) => {
       logUtil.logError(ctx,error,ms)
   }
 })
-
+app.use(responses())
 // app.use(bootstrap)
 
 // console.log('H')
- app.use(userAuth)
+app.use(userAuth)
+
 // routes
 app.use(index.routes(), index.allowedMethods())
-//auth
-// app.use(userAuth)
+
+// app.use(siteStatus)
 
 module.exports = app

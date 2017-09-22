@@ -21,20 +21,23 @@ module.exports = {
     /**
      * 获取单个帖子列表
      */
-    index : async function (ctx,next) {
+    index : async  (ctx,next)=> {
         //ThreadsId 有效性
         var threadsId = Number(ctx.params.tid)
         if (!threadsId) {
-            return res.forbidden('ID不合法');
+            return ctx.forbidden('ID不合法');
         }
         //翻页
         var pageIndex = (ctx.query.page && ctx.query.page == 'last') ? 'last' : ( Number(ctx.query.page) || 1 )
-        ctx.request.wantType = utility.checkWantType(ctx.params.format)
-        ctx.cacheKey = 'threads:' + threadsId + ':' + pageIndex + ':' + ctx.request.wantType.suffix
+        ctx.wantType = utility.checkWantType(ctx.params.format)
+        ctx.cacheKey = 'threads:' + threadsId + ':' + pageIndex + ':' + ctx.wantType.suffix
         try{
-            let cache = await CacheService.get(req.cacheKey)
+            let cache = await CacheService.get(ctx.cacheKey)
             if(ctx.wantType.param == 'json'){
                 // return sails.config.jsonp ? res.jsonp(JSON.parse(cache)) : res.json(JSON.parse(cache));
+                return ctx.body = {
+                    cache:JSON.parse(cache)
+                }
             } else if(ctx.wantType.param == 'xml'){
                 // res.set('Content-Type','text/xml');
             }
@@ -46,13 +49,16 @@ module.exports = {
                 let threads = await ThreadsModel.findById(threadsId)
                 // console.log(threads)
                 if (!threads) {
-                    return 
+                    return ctx.notFound();
                 }
                 var forum = ForumModel.findForumById(threads.forum) || {}
                 let replyCount = await ThreadsModel.count({where:{parent: threadsId}})
                 var pageCount = Math.ceil(replyCount / 20)
                 pageCount = (!pageCount) ? 1 : pageCount
+
+                 // 获取回复信息
                 let replys = await ThreadsModel.getReply(threadsId, (pageIndex == 'last') ? pageCount : pageIndex)
+                console.log("replays========================",replys)
                 var output = {
                     threads: threads,
                     replys: replys,
@@ -83,12 +89,14 @@ module.exports = {
                         replys[i]['updatedAt'] = (replys[i]['updatedAt']) ? new Date(replys[i]['updatedAt']).getTime() : null;
                     }
                 }
-                return ctx.render('desktop/threads/index',output)
+                return ctx.generateResult(output,{
+                    desktopView: 'desktop/threads/index',
+                    mobileView: 'mobile/threads/index'
+                });
             }
             catch(err){
-                return ctx.body = {
-                    msg :'err'
-                }
+                console.log(err)
+                return ctx.serverError(err);
             }
         }
     },
@@ -99,9 +107,9 @@ module.exports = {
         body = JSON.stringify(body)
         body = JSON.parse(body)
         let data = body.fields || {}
-        // console.log(data)
+        console.log(data)
         if (ctx.method != 'POST') {
-            return await next()
+            return ctx.notFound();
         }
 
         const file = ctx.request.body.files.image
@@ -122,13 +130,13 @@ module.exports = {
             }
             
            let parentThreads = await ThreadsModel.checkParentThreads(ctx.params.tid)
-            console.log('parentThreads',parentThreads)
+            // console.log('parentThreads',parentThreads)
             // ip
             data.ip = ctx.ip || '0.0.0.0'
 
             // 饼干
             data.uid = ctx.session.userId;
-            console.log('uid',data.uid)
+            //  console.log('uid',data.uid)
 
             // 管理员回复
             if (data.isManager == 'true' && ctx.session.managerId) {
@@ -139,17 +147,11 @@ module.exports = {
             if (data.image && !data.content) {
                 data.content = '无正文';
             } else if (!data.image && (!data.content || data.content.toString().trim().length < 1)) {
-                // return res.badRequest('正文至少1个字');
-                return ctx.body={
-                    mag:'正文至少1个字'
-                }
+                return ctx.badRequest('正文至少1个字');
             }
 
             if (FilterModel.test.word(data.content) || FilterModel.test.word(data.name) || FilterModel.test.word(data.title)) {
-                // return res.badRequest('正文至少1个字');
-                return ctx.body={
-                    mag:'正文至少1个字'
-                }
+                return ctx.badRequest('含有敏感词');
             }
 
             data.content = data.content
@@ -167,9 +169,9 @@ module.exports = {
                 .replace(/&gt;(.*?)\<br\>/g, "<font color=\"#789922\">&gt;$1</font><br>");
         
             if (parentThreads && parentThreads.forum) {
-                var forum = ForumModel.findForumById(parentThreads.forum)
+                var forum = await ForumModel.findForumById(parentThreads.forum)
             } else if (ctx.params.forum) {
-                var forum = ForumModel.findForumByName(ctx.params.forum)
+                var forum = await ForumModel.findForumByName(ctx.params.forum)
             } else {
                 var forum = null
             }
@@ -183,25 +185,16 @@ module.exports = {
             }
 
             if (!forum) {
-                // return res.badRequest('版块不存在');
-                return ctx.body={
-                    mag:'版块不存在'
-                }
+                return ctx.badRequest('版块不存在');
             }
 
             if (forum.lock) {
-                // return res.badRequest('版块已经被锁定');
-                return ctx.body={
-                    mag:'版块已经被锁定'
-                }
+                return ctx.badRequest('版块已经被锁定');
             }
 
             if (ctx.session.lastPostAt && (new Date().getTime() - ctx.session.lastPostAt < forum.cooldown * 1000)) {
                 if (!ctx.session.managerId) {
-                    // return res.badRequest('技能冷却中');
-                    return ctx.body={
-                        mag:'技能冷却中'
-                    }
+                    return ctx.badRequest('技能冷却中');
                 }
             }
             let newThreads
@@ -222,13 +215,16 @@ module.exports = {
                     parent: data.parent || '0',
                     updatedAt: new Date()
                 }).then(res=>{
+                    res = JSON.stringify(res)
+                    res = JSON.parse(res)
+                    return res
+                }).then(res=>{
                     console.log(res)
+                    return res
                 })
             }catch(err){
                 console.log(err)
-                return ctx.body={
-                    msg:err
-                }
+                return ctx.badRequest(err);
             }
             try{
                 // 对父串进行处理
@@ -236,18 +232,16 @@ module.exports = {
                 // session CD时间更新
                 ctx.session.lastPostAt = new Date().getTime()
                 ctx.session.lastPostThreadsId = newThreads.id;
-                return ctx.render('desktop/code/200',{threadsId:newThreads.id})
+
+                return ctx.ok('成功',{threadsId:newThreads.id})
             }catch(err){
                 // 事务回滚 删除之前创建的内容
-                await ThreadsModel.destroy({id: newThreads.id})
-                // return res.serverError(err);
-                return
+                await ThreadsModel.destroy({where:{id: newThreads.id}})
+                return ctx.serverError(err);
             }
         }catch(err){
-            console.log('err2222222',err)
-            return ctx.body={
-                msg:err
-            }
+            // console.log('err2222222',err)
+            return ctx.serverError(err);
         }
     }
 }

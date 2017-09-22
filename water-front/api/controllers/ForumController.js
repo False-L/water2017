@@ -17,7 +17,7 @@ module.exports = {
         // console.log('forum')
 
         if (!forum) {
-            return 
+            return ctx.notFound();
         }
 
         // 翻页
@@ -27,7 +27,7 @@ module.exports = {
         ctx.request.wantType = utility.checkWantType(ctx.params.format)
         ctx.cacheKey = 'forum:' + forum.id + ':' + pageIndex + ':' + ctx.request.wantType.suffix
         try{
-            let cache = await CacheService.get(req.cacheKey)
+            let cache = await CacheService.get(ctx.cacheKey)
             if (ctx.wantType.param == 'json') {
                 // return sails.config.jsonp ? ctx.jsonp(JSON.parse(cache)) : ctx.json(JSON.parse(cache))
             } else if (ctx.wantType.param == 'xml') {
@@ -75,10 +75,13 @@ module.exports = {
                         data['updatedAt'] = (data['updatedAt']) ? new Date(data['updatedAt']).getTime() : null;
                     }
                 }
-                return ctx.render('desktop/forum/index',output)
+                return ctx.generateResult(output, {
+                    desktopView: 'desktop/forum/index',
+                    mobileView: 'mobile/forum/index'
+                });
             }catch(err){
-                console.log(err)
-                return 
+                console.log(err);
+                return  ctx.serverError(err);
             }
         }
     }

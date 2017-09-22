@@ -86,6 +86,7 @@ ForumModel.initialize = function () {
 
 
 ForumModel.findForumById = function (id) {
+  // console.log(sequelize.models.forum.list)
   return ForumModel.list[sequelize.models.forum.idList[id]];
 }
 ForumModel.findForumByName = function (name) {
