@@ -25,7 +25,8 @@ var ForumModel = sequelize.models.forum
  */
 ForumModel.initialize = function () {
     var promise = new Promise(function(resolve,reject){
-    sequelize.models.forum.findAll().then(res=>{
+    sequelize.models.forum.findAll()
+    .then(res=>{
       res = JSON.stringify(res)
       res = JSON.parse(res)
       return res
@@ -55,7 +56,15 @@ ForumModel.initialize = function () {
             })
         }
       }
-      ThreadsModel.findAll({attributes:['forum',[sequelize.fn('count', sequelize.col('forum')),'count']], group:'forum'})
+      ThreadsModel.findAll(
+        { 
+          where:{
+            parent:0
+          },
+          attributes:
+        ['forum',
+        [sequelize.fn('count', sequelize.col('forum')),'count']
+      ], group:'forum'})
       .then(res=>{
         res = JSON.stringify(res)
         res = JSON.parse(res)
@@ -67,6 +76,7 @@ ForumModel.initialize = function () {
           if (handledForum[handledForumId[threadsCount.forum]])
               handledForum[handledForumId[threadsCount.forum]]['topicCount'] = threadsCount.count;
         }
+        console.log("handledForum===================",handledForum)
         sequelize.models.forum.list = handledForum
         sequelize.models.forum.idList = handledForumId
         sequelize.models.forum.selectList = forumSelectList

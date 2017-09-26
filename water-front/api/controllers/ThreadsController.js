@@ -21,7 +21,7 @@ module.exports = {
     /**
      * 获取单个帖子列表
      */
-    index : async  (ctx,next)=> {
+    index : async  ( ctx , next) => {
         //ThreadsId 有效性
         var threadsId = Number(ctx.params.tid)
         if (!threadsId) {
@@ -41,9 +41,10 @@ module.exports = {
             } else if(ctx.wantType.param == 'xml'){
                 // res.set('Content-Type','text/xml');
             }
-
+            return ctx.body = cache ;
             // res.send(200, cache);
         }catch(err){
+            console.log(err)
             try{
                 // 首先通过threadsID获得主串信息
                 let threads = await ThreadsModel.findById(threadsId)
@@ -107,13 +108,13 @@ module.exports = {
         body = JSON.stringify(body)
         body = JSON.parse(body)
         let data = body.fields || {}
-        console.log(data)
+    
         if (ctx.method != 'POST') {
             return ctx.notFound();
         }
 
         const file = ctx.request.body.files.image
-
+       
         if( file.size && file.size > 4194304){
             return
             // return ctx.redirect('back')
@@ -121,14 +122,18 @@ module.exports = {
         // console.log('file',file)
 
         try {
-            let uploadedFilesPath = await ThreadsModel.uploadAttachment(file)
-
-             console.log('uploadedFilesPath',uploadedFilesPath)
-            if (uploadedFilesPath && uploadedFilesPath.image) {
-                data.image = uploadedFilesPath.image
-                data.thumb = uploadedFilesPath.image
-            }
+            if(file.fd){
+                let uploadedFilesPath = await ThreadsModel.uploadAttachment(file)
             
+                console.log('uploadedFilesPath',uploadedFilesPath)
+                if (uploadedFilesPath && uploadedFilesPath.image) {
+                    data.image = uploadedFilesPath.image
+                    data.thumb = uploadedFilesPath.image
+                }
+            }else{
+                data.image = " "
+                data.thumb = " "
+            }
            let parentThreads = await ThreadsModel.checkParentThreads(ctx.params.tid)
             // console.log('parentThreads',parentThreads)
             // ip
@@ -235,6 +240,7 @@ module.exports = {
 
                 return ctx.ok('成功',{threadsId:newThreads.id})
             }catch(err){
+                console.log(err)
                 // 事务回滚 删除之前创建的内容
                 await ThreadsModel.destroy({where:{id: newThreads.id}})
                 return ctx.serverError(err);

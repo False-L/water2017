@@ -56,6 +56,7 @@ module.exports =  async function generateResult(data, option) {
             default :
                 // Cache.set(ctx.cacheKey, html);
                 await ctx.render(option.desktopView, data);
+                Cache.set(ctx.cacheKey, ctx.body);
                 // console.log(ctx.body)
                 break;
         }

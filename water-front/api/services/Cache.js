@@ -10,31 +10,33 @@ var Cache = module.exports = {
          * 获取缓存
          */
         get: function (key) {   
-                if(!key){
-                    return Promise.reject(null)
-                }
-        
+            if(!key){
+                return Promise.reject(null)
+            }
+            var promise = new Promise(function(resolve,reject){
                 Cache.version(key)
                     .then(function (version) {
         
                         if (!version || version == null) {
-                            return Promise.reject(null)
+                            return reject(null)
                         } else {
                             // 获取最新缓存
                             redis.get(key + ':' + version, function (err, cache) {
                                 if (err) {
-                                   return Promise.reject(err);
+                                   return reject(err);
                                 } else if (cache == null) {
-                                    return Promise.reject(null);
+                                    return reject(null);
                                 } else {
-                                    return Promise.resolve(cache);
+                                    return resolve(cache);
                                 }
                             });
                         }
                     })
                     .catch(function (err) {
-                       return Promise.reject(err)
-                    });
+                       return reject(err)
+                    });                    
+            })
+            return promise;
         },
     
         /**
@@ -110,19 +112,21 @@ var Cache = module.exports = {
          */
         version:  function (key) {  
                 key =  Cache.prehandleKey(key)
-                
-                // 获取最新版本号
-                redis.get(key + ':version', function (err, version) {
-        
-                    if (err) {
-                        return Promise.reject(err);
-                    } else if (version == null) {
-                        redis.set(key + ':version', 1);
-                        return Promise.resolve(1)
-                    } else {
-                       return Promise.resolve(version);
-                    }
-                })                     
+                var promise =new Promise(function(resolve,reject){
+                    // 获取最新版本号
+                    redis.get(key + ':version', function (err, version) {
+            
+                        if (err) {
+                          return  reject(err);
+                        } else if (version == null) {
+                            redis.set(key + ':version', 1);
+                            return resolve(1)
+                        } else {
+                            return resolve(version);
+                        }
+                    }) 
+                })
+                return promise;                    
         },
     
         /**

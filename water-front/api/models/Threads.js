@@ -44,12 +44,10 @@ sequelize.define('threads',{
         type:Sequelize.BIGINT,
         defaultValue:0
     },
-    // recentReply:{
-    //     references: {
-    //         model:'recentReply',
-    //         key: 'uid'
-    //     }
-    // }
+    recentReply:{
+        type:Sequelize.TEXT,
+        defaultValue:''
+    }
 },{      
     freezeTableName: true, // 默认false修改表名为复数，true不修改表名，与数据库表名同步      
     tableName: 'threads',       
@@ -68,13 +66,13 @@ ThreadsModel.list = function (forumId, page) {
             parent: 0 
        },
        order:[['updatedAt', 'DESC']],
-       offset:(page-1)*20,
-       limit:20
+       offset:(page-1)*10,
+       limit:10
    }).then(res=>{
     //    console.log(res)
        res = JSON.stringify(res)
        res = JSON.parse(res)
-       console.log(res)
+    //    console.log(res)
        return res
    })
    .then(threads=>{
@@ -85,7 +83,9 @@ ThreadsModel.list = function (forumId, page) {
         for( var i in threads){
             var item = threads[i]
             if (item.recentReply && item.recentReply.length > 0) {
-            replyIds = replyIds.concat(item.recentReply);
+                console.log("recentReply",item.recentReply)
+
+                replyIds = replyIds.concat(item.recentReply.split(","));
             }
         }
         if (replyIds && replyIds.length > 0) {
@@ -98,7 +98,13 @@ ThreadsModel.list = function (forumId, page) {
                 where:{
                     id: replyIds
                 }
-            }).then(replys=>{
+            }).then(res=>{
+                res = JSON.stringify(res)
+                res = JSON.parse(res)
+             //    console.log(res)
+                return res
+            })
+            .then(replys=>{
                     for (var i in replys) {
                         result.replys['t' + replys[i].id] = replys[i];
                     }
@@ -133,7 +139,7 @@ ThreadsModel.getReply = function (threadsId, page){
                 return res
             })
             .then(threads=>{
-                console.log(threads)
+                // console.log(threads)
                return resolve(threads);
             }).catch(err=>{
                 return reject(err);
@@ -246,36 +252,48 @@ ThreadsModel.checkParentThreads = function (parent) {
 }
 
 ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
+
+        // console.log("parentThreads==================start","newThreads")
+        // console.log(parentThreads)
+        // console.log(newThreads)
+        // console.log("parentThreads====================end","newThreads")
         if (!parentThreads) {
             return Promise.resolve(null);
         }
         // console.log("parentThreads",parentThreads)
-        var recentReply = parentThreads.recentReply
-        if (!_.isArray(recentReply)) {
-            recentReply = []
+        var recentReply = parentThreads.recentReply;
+        if(!recentReply){
+            recentReply = [];
+        }else{
+            recentReply = recentReply.split(",");
         }
+        // recentReply = recentReply.split(',');
+
+        // if (!_.isArray(recentReply)) {
+        //     recentReply = []
+        // }
         if (recentReply.length > 4) {
             recentReply.pop()
         }
-        recentReply.unshift(newThreads.id)
-        console.log("recentReply",recentReply)
-        var map = {}
-        map['recentReply'] = recentReply
-        map['replyCount'] = Number(Number(parentThreads['replyCount']) + 1)
+        
+        recentReply.unshift(String(newThreads.id));
+
+        recentReply = recentReply.toString();
+
+        var map = {};
+        map['recentReply'] = recentReply;
+        map['replyCount'] = Number(Number(parentThreads['replyCount']) + 1);
 
         if (parentThreads.sage || newThreads.sage) {
             map['updatedAt'] = parentThreads.updatedAt
         } else {
             map['updatedAt'] = new Date()
         }
-        console.log("map==================",map)
         var promise = new Promise(function(resolve,reject){
-            ThreadsModel.update({
-                map
-            },{
+            ThreadsModel.update(map,{
                where:{ id: parentThreads.id}
-            }).then(function () {
-                resolve(null)
+            }).then(function (res) {
+                return resolve(null)
             }).catch(function (err) {
                reject(err)
             })

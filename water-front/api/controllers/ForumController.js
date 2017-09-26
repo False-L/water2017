@@ -23,9 +23,9 @@ module.exports = {
         // 翻页
         var pageIndex = Number(ctx.query.page) || 1
         var pageCount = Math.ceil(ForumModel.list[forum.name]['topicCount'] / 10)
-
-        ctx.request.wantType = utility.checkWantType(ctx.params.format)
-        ctx.cacheKey = 'forum:' + forum.id + ':' + pageIndex + ':' + ctx.request.wantType.suffix
+        
+        ctx.wantType = utility.checkWantType(ctx.params.format)
+        ctx.cacheKey = 'forum:' + forum.id + ':' + pageIndex + ':' + ctx.wantType.suffix
         try{
             let cache = await CacheService.get(ctx.cacheKey)
             if (ctx.wantType.param == 'json') {
@@ -33,12 +33,13 @@ module.exports = {
             } else if (ctx.wantType.param == 'xml') {
                 // ctx.set('Content-Type', 'text/xml');
             }
-            // ctx.send(200, cache);
+            ctx.status = 200;
+            return ctx.body = cache;
         }
         catch(err){
             try{
                 var data = await ThreadsModel.list(forum.id, pageIndex)
-                // console.log('data',data)
+                console.log('data',data)
                 var output = {
                     utility: utility,
                     forum: forum,
@@ -75,6 +76,7 @@ module.exports = {
                         data['updatedAt'] = (data['updatedAt']) ? new Date(data['updatedAt']).getTime() : null;
                     }
                 }
+                console.log("output===================",output)
                 return ctx.generateResult(output, {
                     desktopView: 'desktop/forum/index',
                     mobileView: 'mobile/forum/index'
