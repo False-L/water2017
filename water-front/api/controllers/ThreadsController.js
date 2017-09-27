@@ -119,10 +119,10 @@ module.exports = {
             return
             // return ctx.redirect('back')
         }
-        // console.log('file',file)
+         console.log('file',file)
 
         try {
-            if(file.fd){
+            if(file.name){
                 let uploadedFilesPath = await ThreadsModel.uploadAttachment(file)
             
                 console.log('uploadedFilesPath',uploadedFilesPath)

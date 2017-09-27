@@ -160,7 +160,7 @@ ThreadsModel.uploadAttachment = function (uploadedFile) {
             return Promise.reject('系统暂时禁止了上传图片，请取消附件再重新发串。')
         }
         var promise = new Promise(function(resolve,reject){
-            fs.readFileAsync(uploadedFile.path,"utf-8")
+            fs.readFileAsync(uploadedFile.path)
                 .then(uploadedFileBuffer=>{
                     // 0. 就绪,删除原文件
                     fs.unlink(uploadedFile.path)
@@ -169,8 +169,8 @@ ThreadsModel.uploadAttachment = function (uploadedFile) {
                     if (!/^.*?\.(jpg|jpeg|bmp|gif|png)$/g.test(uploadedFile.name.toLowerCase())) {
                         return reject('只能上传 jpg|jpeg|bmp|gif|png 类型的文件')
                     }
-                    // var imagemd5 = md5(uploadedFileBuffer)
-                    var imagemd5 = uploadedFileBuffer
+                    var imagemd5 = md5(uploadedFileBuffer)
+                    // var imagemd5 = uploadedFileBuffer
                     // 2. 检查是否被屏蔽
                     
                     if (FilterModel.test && FilterModel.test.imagemd5(imagemd5)) {
@@ -181,7 +181,7 @@ ThreadsModel.uploadAttachment = function (uploadedFile) {
                 // 3. 准备好路径
                 var now = new Date()
                 var imageName = uploadedFile.name.toLowerCase()
-                var remoteImagePath = '/c/Users/lin/Desktop/github/image/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
+                var remoteImagePath = '/image/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
                 // var remoteThumbPath = '/Users/web/Desktop/thumb/' + now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate() + '/' + imageName
                     console.log('remoteImagePath',remoteImagePath)
 
@@ -200,6 +200,9 @@ ThreadsModel.uploadAttachment = function (uploadedFile) {
                                             console.log('流程结束')
                                             ftpClient.end()
                                             return resolve({image: remoteImagePath, thumb: ''})                        
+                                        }).catch(err=>{
+                                            ftpClient.end();
+                                            return reject(uploadImageError);
                                         })
                                 })
                                 .catch(uploadImageError=>{
