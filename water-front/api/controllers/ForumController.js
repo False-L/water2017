@@ -39,7 +39,7 @@ module.exports = {
         catch(err){
             try{
                 var data = await ThreadsModel.list(forum.id, pageIndex)
-                console.log('data',data)
+                // console.log('data',data)
                 var output = {
                     utility: utility,
                     forum: forum,
@@ -76,7 +76,7 @@ module.exports = {
                         data['updatedAt'] = (data['updatedAt']) ? new Date(data['updatedAt']).getTime() : null;
                     }
                 }
-                console.log("output===================",output)
+                // console.log("output===================",output)
                 return ctx.generateResult(output, {
                     desktopView: 'desktop/forum/index',
                     mobileView: 'mobile/forum/index'
