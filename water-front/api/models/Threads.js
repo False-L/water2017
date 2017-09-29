@@ -12,6 +12,7 @@ gm = require('gm').subClass({ imageMagick: true })
 const FtpServices = require('../services/Ftp.js')
 const sequelize = require('../../utils/dbpool.js')
 const FilterModel = require('./Filter.js')
+const CacheSerives = require('../services/Cache.js')
 
 sequelize.define('threads',{
     uid:{
@@ -256,10 +257,6 @@ ThreadsModel.checkParentThreads = function (parent) {
 
 ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
 
-        // console.log("parentThreads==================start","newThreads")
-        // console.log(parentThreads)
-        // console.log(newThreads)
-        // console.log("parentThreads====================end","newThreads")
         if (!parentThreads) {
             return Promise.resolve(null);
         }
@@ -302,6 +299,66 @@ ThreadsModel.handleParentThreads = function (parentThreads, newThreads) {
             })
          })
         return promise
+}
+ThreadsModel.afterCreate = function (newlyInsertedRecord, cb) {
+
+    //通知清除缓存
+    if (newlyInsertedRecord.parent != 0) {
+        CacheSerives.update('threads:' + newlyInsertedRecord.parent);
+    }
+    CacheSerives.update('forum:' + newlyInsertedRecord.forum);
+    
+    if(newlyInsertedRecord.parent == 0){
+        ThreadsModel.noticeUpdate(newlyInsertedRecord.forum);
+    }
+}
+ThreadsModel.afterUpdate = function (updatedRecord, cb) {
+    
+    //通知清除缓存
+    if (updatedRecord.parent != 0) {
+        CacheSerives.update('threads:' + updatedRecord.parent);
+    }
+    if (updatedRecord.parent == 0) {
+        CacheSerives.update('threads:' + updatedRecord.id);
+    }
+    CacheSerives.update('forum:' + updatedRecord.forum);
+    
+    cb();
+    
+},
+ThreadsModel.afterDestroy = function (destroyedRecords, cb) {
+    
+    if (!Array.isArray(destroyedRecords)) {
+        destroyedRecords = [destroyedRecords];
+    }
+    
+    for (var i in destroyedRecords) {
+    
+        var destroyedRecord = destroyedRecords[i];
+    
+                //通知清除缓存
+        if (destroyedRecord.parent != 0) {
+            CacheSerives.update('threads:' + destroyedRecord.parent);
+        }
+        if (destroyedRecord.parent == 0) {
+            CacheSerives.update('threads:' + destroyedRecord.id);
+        }
+        CacheSerives.update('forum:' + destroyedRecord.forum);
+    }
+    
+    cb();
+
+},
+ThreadsModel.noticeUpdate = function(forum){
+    if(ipm2.rpc.msgProcess){
+        // sails.log.silly('try send message to process(h.acfun.tv.front) - threads++ ');
+        console.log('try send message to process(h.acfun.tv.front) - threads++ ');
+        ipm2.rpc.msgProcess({name:"h.acfun.tv.front", msg:{type:"h:update:forum:topicCount",forum:forum}}, function (err, res) {
+            if(err){
+                console.error(err);
+            }
+        });
+    }
 }
 
 module.exports = ThreadsModel

@@ -50,6 +50,9 @@ SettingModel.exportToGlobal = function () {
   })
   return promise 
 }
+  /**
+   * 从数据库同步到全局变量
+   */
 SettingModel.afterUpdate = function(updatedRecord, cb) {
   SettingModel.exportToGlobal()
     .then(function (settings) {
@@ -57,16 +60,18 @@ SettingModel.afterUpdate = function(updatedRecord, cb) {
     })
     .catch(function (err) {
         // sails.log.error(err);
+        console.error(err);
     });
   
-    // if(ipm2.rpc.msgProcess){
-    //   // sails.log.silly('try send message to process(h.acfun.tv.front) - setting');
-    //   ipm2.rpc.msgProcess({name:"h.acfun.tv.front", msg:{type:"h:update:setting"}}, function (err, res) {
-    //     if(err){
-    //         //sails.log.error(err);
-    //     }
-    //   });
-    // }
+  if(ipm2.rpc.msgProcess){
+    // sails.log.silly('try send message to process(h.acfun.tv.front) - setting');
+    ipm2.rpc.msgProcess({name:"h.acfun.tv.front", msg:{type:"h:update:setting"}}, function (err, res) {
+      if(err){
+          //sails.log.error(err);
+          console.error(err);
+      }
+    });
+  }
   cb();
 }
 

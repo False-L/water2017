@@ -90,7 +90,7 @@ module.exports = {
             if(isAPI){
                 var output = {
                     success:true,
-                forum:{}
+                    forum:{}
                 }
                 try{
                     rawForums = await ForumModel.findAll().then(res=>{
@@ -140,8 +140,8 @@ module.exports = {
      * 搜索
      */
     search: async function(ctx,next){
-        ctx.request.wantType = utility.checkWantType(ctx.params.format)
-        ctx.request.cacheKey ='homepage:search:' + ctx.request.wantType.suffix
+        ctx.wantType = utility.checkWantType(ctx.params.format)
+        ctx.cacheKey ='homepage:search:' + ctx.wantType.suffix
         var data = {
             page: {
                 title: '搜索'

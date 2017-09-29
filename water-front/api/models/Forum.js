@@ -103,5 +103,36 @@ ForumModel.findForumByName = function (name) {
   return ForumModel.list[name];
 }
 
-
+/**
+ * 通知集群版块已更新
+ */
+ForumModel.afterCreate =  function(newlyInsertedRecord, cb) {
+  
+  ForumModel.noticeUpdate();
+  
+  cb();
+};
+ForumModel.afterUpdate = function(updatedRecord, cb) {
+  
+  ForumModel.noticeUpdate();
+  
+  cb();
+};
+ForumModel.afterDestroy = function(destroyedRecords, cb) {
+  
+  ForumModel.noticeUpdate();
+  
+  cb();
+};
+ForumModel.noticeUpdate = function(){
+  if(ipm2.rpc.msgProcess){
+      // sails.log.silly('try send message to process(h.acfun.tv.front) - forum');
+      console.log('try send message to process(h.acfun.tv.front) - forum');
+      ipm2.rpc.msgProcess({name:"h.acfun.tv.front", msg:{type:"h:update:forum"}}, function (err, res) {
+          if(err){
+             console.error(err);
+          }
+      });
+  }
+};
 module.exports = ForumModel
