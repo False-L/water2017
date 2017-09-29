@@ -5,7 +5,6 @@
  * @description :: 订阅
  */
 
-
 const Sequelize = require('sequelize')
 const sequelize = require('../../utils/dbpool.js')
 

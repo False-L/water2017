@@ -249,5 +249,87 @@ module.exports = {
             // console.log('err2222222',err)
             return ctx.serverError(err);
         }
+    },
+    /**
+     * 删除最后一次发的串
+     * @param req
+     * @param res
+     * @returns {*}
+     */
+    removeLastThreads: async (ctx, next) => {
+
+        if (!ctx.session.lastPostThreadsId || !parseInt(req.session.lastPostThreadsId)) {
+            return ctx.badRequest('没有找到可以删除的串');
+        }
+        var threadsId = ctx.session.lastPostThreadsId;
+        try{
+            var threads = await ThreadsModel.findById(threadsId)
+            .then(res=>{
+                res = JSON.stringify(res)
+                res = JSON.parse(res)
+                return res
+            });
+
+            if (!threads) {
+                return ctx.badRequest('串不存在');
+            }
+
+            var ip = ctx.ip || '0.0.0.0';
+
+            if (threads.ip == ip && threads.uid == ctx.session.userId) {
+
+                await ThreadsModel.destroy({where:{id: threadsId}});
+                return ctx.ok('删除成功');
+        
+            } else {
+                return ctx.badRequest('权限不足');
+            }
+        }catch(err){
+           return ctx.serverError(err);
+        }
+    },
+
+    // 引用查看
+    ref: async (ctx, next) => {
+
+        ctx.wantType = utility.checkWantType(ctx.params.format);
+
+        var threadsId = Number(req.query.tid);
+        if (!threadsId) {
+            return ctx.forbidden('ID不合法');
+        }
+
+        try{
+            var threads = await ThreadsModel.findById(threadsId)
+            .then(res=>{
+                res = JSON.stringify(res)
+                res = JSON.parse(res)
+                return res
+            });
+
+            if (threads) {
+                delete threads['ip'];
+                threads['createdAt'] = (threads['createdAt']) ? new Date(threads['createdAt']).getTime() : null;
+                threads['updatedAt'] = (threads['updatedAt']) ? new Date(threads['updatedAt']).getTime() : null;
+            } else {
+                return ctx.send(404, '');
+            }
+
+            var data = {
+                data: threads,
+                code: 200,
+                success: true
+            };
+
+            return ctx.generateResult(data,{
+                desktopView: 'desktop/threads/ref',
+                mobileView: 'mobile/threads/ref'
+            });
+        }catch(err){
+            if (err) {
+                return ctx.send(404, '');
+            }
+        }
     }
+
 }
