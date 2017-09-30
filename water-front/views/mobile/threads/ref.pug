@@ -1,0 +1,19 @@
+include ../../global/settings
+include ../layout/widget
+
+- var item = data
+
+div.h-threads-container(id='threads_'+item.id,style='padding:0')
+    p.h-threads-first-col(style='margin:0')
+        span.h-threads-title=(item.title) ? item.title : '无标题'
+        span.h-threads-name=(item.name) ? item.name : '无名氏'
+        a.h-threads-id(href='/t/'+item.id+'.mobile?r='+item.id)= 'No.' + item.id
+        if item.sage
+            span.h-badge.uk-badge.uk-badge-warning 已SAGE
+        if item.lock
+            span.h-badge.uk-badge.uk-badge-danger 已锁定
+        | &nbsp;
+        span.h-threads-time=sails.services.utility.unix_to_datetime(item.createdAt)
+        span.h-threads-uid!='ID: '+item.uid
+    +image(item.thumb,item.image)
+    p.h-threads-content!=item.content

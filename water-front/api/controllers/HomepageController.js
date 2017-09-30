@@ -8,15 +8,15 @@ module.exports = {
     
     index :async function (ctx,next) {
 
-        ctx.wantType = utility.checkWantType(ctx.params.format)
-        ctx.cacheKey ='homepage:index:' + ctx.wantType.suffix
+        ctx.wantType = utility.checkWantType(ctx.params.format);
+        ctx.cacheKey ='homepage:index:' + ctx.wantType.suffix;
 
         // 0.1 确认是否需要跳转
 
         if(ctx.query.switch){
             if(ctx.query.switch == 'true'){
                 ctx.session.wantMobile = 'true';
-                return res.redirect('/.mobile');
+                return ctx.redirect('/mobile');
             } else if(ctx.query.switch == 'false'){
                 ctx.session.wantMobile = 'false';
             }
@@ -27,7 +27,7 @@ module.exports = {
             if(typeof ctx.session.wantMobile == 'undefined'){
                 return ctx.redirect('/homepage/switchType');
             } else if(ctx.session.wantMobile == 'true') {
-                return ctx.redirect('/.mobile');
+                return ctx.redirect('/mobile');
             }
         }
         try{
@@ -82,7 +82,7 @@ module.exports = {
      * 版块列表
      * TODO：需要修改
      */
-    menu: async function (ctx, next) {
+    menu: async (ctx, next) => {
         
         var key = 'homepage:menu';
         

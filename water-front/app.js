@@ -59,8 +59,6 @@ app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 
-console.log('已经启动')
-
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()

@@ -19,7 +19,7 @@ module.exports =  async function generateResult(data, option) {
     
         var  ctx = this;
         // sails.log.silly('res.ok() :: Sending 200 ("OK") response');
-        console.log('res.ok() :: Sending 200 ("OK") response');
+        console.log('ctx.ok() :: Sending 200 ("OK") response');
         // Set status code
         ctx.status = 200;
     
@@ -27,7 +27,7 @@ module.exports =  async function generateResult(data, option) {
             return ctx.serverError('结果生成初始化失败:预期外参数');
         }
     
-        switch ('desktop') {
+        switch (ctx.wantType.param) {
             // ctx.wantType.param
     //        case 'xml':
     //            var html = json2xml(data);
@@ -37,20 +37,15 @@ module.exports =  async function generateResult(data, option) {
     //            res.send(200, html);
     //            break;
     
-            // case 'json':
-            //     sails.services.cache.set(req.cacheKey, data);
-            //     sails.config.jsonp ? res.jsonp(data) : res.json(data);
-            //     break;
+            case 'json':
+                Cache.set(req.cacheKey, data);
+                return ctx.body = data;
+                break;
     
-            // case 'mobile':
-            //     res.render(option.mobileView, data, function (err, html) {
-            //         if (err) {
-            //             return res.serverError(err);
-            //         }
-            //         sails.services.cache.set(req.cacheKey, html);
-            //         res.send(200, html);
-            //     });
-            //     break;
+            case 'mobile':
+                await ctx.render(option.mobileView, data);
+                Cache.set(ctx.cacheKey, ctx.body);
+                break;
     
             case 'desktop':
             default :

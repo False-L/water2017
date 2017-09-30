@@ -294,7 +294,7 @@ module.exports = {
 
         ctx.wantType = utility.checkWantType(ctx.params.format);
 
-        var threadsId = Number(req.query.tid);
+        var threadsId = Number(ctx.query.tid);
         if (!threadsId) {
             return ctx.forbidden('ID不合法');
         }
@@ -312,7 +312,7 @@ module.exports = {
                 threads['createdAt'] = (threads['createdAt']) ? new Date(threads['createdAt']).getTime() : null;
                 threads['updatedAt'] = (threads['updatedAt']) ? new Date(threads['updatedAt']).getTime() : null;
             } else {
-                return ctx.send(404, '');
+                return ctx.notFound();
             }
 
             var data = {
@@ -326,9 +326,7 @@ module.exports = {
                 mobileView: 'mobile/threads/ref'
             });
         }catch(err){
-            if (err) {
-                return ctx.send(404, '');
-            }
+            return ctx.send(404, '');
         }
     }
 

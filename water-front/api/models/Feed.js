@@ -12,7 +12,6 @@ var FeedModel = sequelize.define('feed',{
     deviceToken:{
         type:Sequelize.STRING,
         allowNull:false,
-        
     },
     threadsId:{
         references: {
@@ -37,7 +36,13 @@ FeedModel.exist = function(deviceToken,threadsId){
             deviceToken:deviceToken,
             threadsId:threadsId
         }
-    }).then(data=>{
+    })
+    .then(res=>{
+        res = JSON.stringify(res);
+        res = JSON.parse(res);
+        return res
+    })
+    .then(data=>{
         if(data){
             return Promise.resolve(true);
         }else{
