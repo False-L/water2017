@@ -14,6 +14,7 @@ module.exports =  function bootstrap () {
         settings:{
         }
     }
+    global.ForumModel = ForumModel;
     // Redis 初始化
     client = redis.createClient( development.redisServer.port, development.redisServer.host)
     client.select(development.redisServer.database, async function(){

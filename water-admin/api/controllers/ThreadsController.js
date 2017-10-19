@@ -11,21 +11,21 @@ module.exports ={
 
     index : async (ctx,next) => {
         
-        let selectList = await ForumModel.findAll()
-        selectList = JSON.stringify(selectList)
-        selectList = JSON.parse(selectList)
-        selectList = selectList.map(item=>{
-                let select= {}
-                select.key = item.name
-                select.value = item.id
-                return select
-            })
+        // let selectList = await ForumModel.findAll()
+        // selectList = JSON.stringify(selectList)
+        // selectList = JSON.parse(selectList)
+        // selectList = selectList.map(item=>{
+        //         let select= {}
+        //         select.key = item.name
+        //         select.value = item.id
+        //         return select
+        // })
         
         var page = ctx.query.page || 1
         var pagesize = ctx.query.pagesize || 20
         
         var map = {};
-        var sort = {}; 
+        var sort = []; 
         if (ctx.query.keyword) {
             map['$or'] = [
                 {name: { 
@@ -59,50 +59,68 @@ module.exports ={
             }
         
             if (ctx.query.order) {
+                sort.push(ctx.query.order);
                 if (ctx.query.sort == 'desc') {
-                    sort[ctx.query.order] = 'desc';
+                    sort.push('desc');
                 } else {
-                    sort[ctx.query.order] = 'asc';
+                    sort.push('asc');
                 }
             } else {
-                sort['id'] = 'desc';
+               sort.push('id');
+               sort.push('desc');
             }
-            let threads = await ThreadsModel.findAndCount({
-                // order:sort,
-                where: map,
-                offset: parseInt(pagesize)*(page-1),
-                limit: parseInt(pagesize)
-            })
-            threads = JSON.stringify(threads)
-            threads = JSON.parse(threads)
-        
-            let count = threads.count
-            threads = threads.rows
-        
-            if(ctx.query.parent){
-               let parentThreads = await ThreadsModel.findById(ctx.query.parent)
-               //console.log('parentThreads',parentThreads)
-               return ctx.render('content/threads/index',{
-                page: {
-                    name: '贴子管理',
-                    desc: '串',
-                    count: count
-                },
-                parent: parentThreads,
-                data: threads,
-                selectList:selectList
-               })
-            }else{
-                return ctx.render('content/threads/index',{
-                    page: {
-                        name: '贴子管理',
-                        desc: '全站通用式内容管理',
-                        count: count
-                    },
-                    data: threads,
-                    req:ctx.request,
-                    selectList:selectList 
-                })
+            
+            try{
+                var count = await ThreadsModel.count(map);
+                let threads = await ThreadsModel.findAll({
+                    order:[sort],
+                    where: map,
+                    offset: parseInt(pagesize)*(page-1),
+                    limit: parseInt(pagesize)
+                }).then(res=>{
+                    res = JSON.stringify(res);
+                    res = JSON.parse(res);
+                    // console.log(res)
+                    return res
+                });
+                selectList = threads.map(item=>{
+                    let select= {}
+                    select.key = item.name
+                    select.value = item.id
+                    return select
+                 })
+                if(ctx.query.parent){
+                    let parentThreads = await ThreadsModel.findById(ctx.query.parent)
+                    .then(res=>{
+                        res = JSON.stringify(res);
+                        res = JSON.parse(res);
+                        return res
+                    });
+                    return ctx.render('content/threads/index',{
+                     page: {
+                         name: '贴子管理',
+                         desc: '串',
+                         count: count
+                     },
+                     parent: parentThreads,
+                     data: threads,
+                     selectList:selectList
+                    })
+                 }else{
+                     return ctx.render('content/threads/index',{
+                         page: {
+                             name: '贴子管理',
+                             desc: '全站通用式内容管理',
+                             count: count
+                         },
+                         data: threads,
+                         req:ctx.request,
+                         selectList:selectList 
+                     })
+                 }
+            }
+            catch(err){
+                return ctx.serverError(err);
             }
     },
     create: async function (ctx,next) {

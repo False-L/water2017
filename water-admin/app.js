@@ -17,6 +17,8 @@ const index = require('./api/routes/index')
 const users = require('./api/routes/users')
 const content = require('./api/routes/content')
 const system = require('./api/routes/system')
+
+const responses = require('./middleware/responses.js')
 // error handler
 onerror(app)
 
@@ -60,6 +62,8 @@ app.use(async (ctx, next) => {
   }
 })
 
+
+app.use(responses())
 // app.use(bootstrap)
 
 // console.log('H')
